@@ -1,2 +1,4 @@
 Something/.vs/Something/v15/.suo
 Something/.vs/*
+Something/WebApplication/bin*
+Something/WebApplication/obj*
