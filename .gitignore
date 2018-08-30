@@ -2,3 +2,5 @@ Something/.vs/Something/v15/.suo
 Something/.vs/*
 Something/WebApplication/bin*
 Something/WebApplication/obj*
+/Something/WebApplication/node_modules/
+/Something/WebApplication/wwwroot/dist/
