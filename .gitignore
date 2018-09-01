@@ -2,5 +2,13 @@ Something/.vs/Something/v15/.suo
 Something/.vs/*
 Something/WebApplication/bin*
 Something/WebApplication/obj*
+Something/Database.Entities/obj*
+Something/Database.Entities/bin*
+Something/Database.EntityFramework/obj*
+Something/Database.EntityFramework/bin*
+Something/Service/bin*
+Something/Service/obj*
+Something/Common/bin*
+Something/Common/obj*
 /Something/WebApplication/node_modules/
 /Something/WebApplication/wwwroot/dist/
