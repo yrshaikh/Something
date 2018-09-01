@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WebApplication.Data;
 using WebApplication.Models;
 using WebApplication.Services;
+using WebApplication.Middlewares;
 
 namespace WebApplication
 {
@@ -56,6 +57,7 @@ namespace WebApplication
             app.UseStaticFiles();
 
             app.UseAuthentication();
+            app.UseMiddleware<CreateCompanyMiddleware>();
 
             app.UseMvc(routes =>
             {
