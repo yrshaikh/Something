@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WebApplication.Data;
-using WebApplication.Models;
 using WebApplication.Services;
+using Swashbuckle.AspNetCore.Swagger;
+using Database.EntityFramework;
+using Service.Services.Company;
+using Common.Models;
 
 namespace WebApplication
 {
@@ -35,8 +33,19 @@ namespace WebApplication
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            RegisterServiceDependency(services);
 
             services.AddMvc();
+            
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "Something API",
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +72,17 @@ namespace WebApplication
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+        }
+
+        private void RegisterServiceDependency(IServiceCollection services)
+        {
+            services.AddTransient<ICompanyService, CompanyService>();
         }
     }
 }
