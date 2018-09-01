@@ -4,5 +4,5 @@
 1. `docker-compose up`
 
 ## Setup database in docker
-2. `dotnet ef migrations add InitialCreate` (Don't need to do this most of the time.)
-3. `Update-Database`
+1. Open the Package Manager Console and select the Database.EntityFramework project and run `dotnet ef migrations add InitialCreate`.
+2. `Update-Database`

@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNet.Identity.MySQL" Version="1.0.0.38741" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0-preview1-35029" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0-preview1-35029" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0-preview1-35029" />

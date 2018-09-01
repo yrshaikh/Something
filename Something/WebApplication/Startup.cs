@@ -6,6 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebApplication.Services;
 using WebApplication.Middlewares;
+using Common.Models;
+using Database.EntityFramework;
+using Service.Services.Company;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace WebApplication
 {
