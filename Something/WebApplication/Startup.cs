@@ -86,7 +86,7 @@ namespace WebApplication
 
         private void RegisterServiceDependency(IServiceCollection services)
         {
-            services.AddSingleton<ICompanyService, CompanyService>();
+            services.AddTransient<ICompanyService, CompanyService>();
         }
     }
 }
