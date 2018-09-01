@@ -38,8 +38,7 @@ namespace WebApplication.ApiControllers
                 return BadRequest(value);
             }
 
-            Task<int> companyId = _companyService.CreateCompanyAsync(value, GetUserId());
-            await companyId;
+            var companyId = _companyService.CreateCompanyAsync(value, GetUserId()).ConfigureAwait(false);
             return Created(string.Empty, companyId);
         }
     }
