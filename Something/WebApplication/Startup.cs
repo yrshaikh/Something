@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using WebApplication.Services;
 using Swashbuckle.AspNetCore.Swagger;
 using Database.EntityFramework;
+using Service.Services.Company;
+using Common.Models;
 
 namespace WebApplication
 {
@@ -35,6 +37,7 @@ namespace WebApplication
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            RegisterServiceDependency(services);
 
             services.AddMvc();
             
@@ -79,6 +82,11 @@ namespace WebApplication
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+        }
+
+        private void RegisterServiceDependency(IServiceCollection services)
+        {
+            services.AddSingleton<ICompanyService, CompanyService>();
         }
     }
 }

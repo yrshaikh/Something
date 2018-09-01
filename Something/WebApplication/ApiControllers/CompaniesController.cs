@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Database.Entities;
-using Database.EntityFramework;
+using Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication.Views.Company;
+using Service.Services.Company;
+using Service.ViewModels.Company;
 
 namespace WebApplication.ApiControllers
 {
@@ -16,28 +15,18 @@ namespace WebApplication.ApiControllers
     [Authorize]
     public class CompaniesController : BaseApiController
     {
-        public CompaniesController(UserManager<ApplicationUser> userManager, ApplicationDbContext dbContext) : base(userManager, dbContext)
+        private readonly ICompanyService _companyService;
+        public CompaniesController(UserManager<ApplicationUser> userManager, ICompanyService companyService ) : base(userManager)
         {
+            _companyService = companyService;
         }
 
         // GET: api/Companies
         [HttpGet]
         public IEnumerable<CompanyViewModel> Get()
         {
-            var companiesVm = new List<CompanyViewModel>();
-            var companies = _dbContext.Companies.ToList();
-            foreach(var company in companies)
-            {
-                companiesVm.Add(new CompanyViewModel(company.CompanyId, company.Name));
-            }
-            return companiesVm;
-        }
-
-        // GET: api/Companies/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
+            var companies = _companyService.GetCompanies();
+            return companies;
         }
         
         // POST: api/Companies
@@ -49,29 +38,9 @@ namespace WebApplication.ApiControllers
                 return BadRequest(value);
             }
 
-            var company = new Company
-            {
-                Name = value,
-                CreatedOn = DateTime.Now,
-                CreatedBy = GetUserId()
-            };
-
-            _dbContext.Companies.Add(company);
-            await _dbContext.SaveChangesAsync();
-
-            return Created(string.Empty, company.CompanyId);
-        }
-        
-        // PUT: api/Companies/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-        
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            Task<int> companyId = _companyService.CreateCompanyAsync(value, GetUserId());
+            await companyId;
+            return Created(string.Empty, companyId);
         }
     }
 }
