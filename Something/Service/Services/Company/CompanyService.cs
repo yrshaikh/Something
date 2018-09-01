@@ -29,10 +29,10 @@ namespace Service.Services.Company
 
         public async Task<int> CreateCompanyAsync(string value, Guid createdBy)
         {
-            var company = new Database.Entities.Company() { Name = value, CreatedBy = createdBy, CreatedOn = DateTime.Now };
+            var company = new Database.Entities.Company { Name = value, CreatedBy = createdBy, CreatedOn = DateTime.Now };
             _dbContext.Companies.Add(company);
-            await _dbContext.SaveChangesAsync();
-            return company.CompanyId;
+            var companyId = await _dbContext.SaveChangesAsync().ConfigureAwait(false);
+            return companyId;
         }
     }
 }
