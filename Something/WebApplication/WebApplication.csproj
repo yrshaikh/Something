@@ -3,7 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>aspnet-WebApplication-D3D798BC-B003-4465-9612-EBA9E6B777B9</UserSecretsId>
+    <TypeScriptToolsVersion>2.9</TypeScriptToolsVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\js\index.tsx" />
+    <Content Remove="wwwroot\js\Message.tsx" />
+  </ItemGroup>
 
 
   <ItemGroup>
@@ -24,6 +30,11 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Service\Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\js\index.tsx" />
+    <TypeScriptCompile Include="wwwroot\js\Message.tsx" />
   </ItemGroup>
 
 </Project>
