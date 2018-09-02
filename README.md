@@ -8,3 +8,10 @@
 2. Run `Update-Database` from the package manager console after selecting `Database.EntityFramework` project.
 
 Run `docker-compose down` to delete all existing tables and redo step 1 & 2.
+
+## Connect to MySQL
+1. Download MySql Workbench
+2. Connect using these credentials
+    1. Database=db
+    2. Uid=root
+    3. Pwd=mysql
