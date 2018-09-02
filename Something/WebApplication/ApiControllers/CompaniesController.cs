@@ -25,7 +25,7 @@ namespace WebApplication.ApiControllers
         [HttpGet]
         public IEnumerable<CompanyViewModel> Get()
         {
-            var companies = _companyService.GetCompanies();
+            var companies = _companyService.GetCompanies(GetUserId());
             return companies;
         }
         
@@ -38,7 +38,7 @@ namespace WebApplication.ApiControllers
                 return BadRequest(value);
             }
 
-            var companyId = _companyService.CreateCompanyAsync(value, GetUserId()).ConfigureAwait(false);
+            var companyId = _companyService.CreateCompany(value, GetUserId());
             return Created(string.Empty, companyId);
         }
     }
