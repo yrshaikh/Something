@@ -5,10 +5,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebApplication.Services;
-using Swashbuckle.AspNetCore.Swagger;
+using WebApplication.Middlewares;
+using Common.Models;
 using Database.EntityFramework;
 using Service.Services.Company;
-using Common.Models;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace WebApplication
 {
@@ -65,6 +66,7 @@ namespace WebApplication
             app.UseStaticFiles();
 
             app.UseAuthentication();
+            app.UseMiddleware<CreateCompanyMiddleware>();
 
             app.UseMvc(routes =>
             {

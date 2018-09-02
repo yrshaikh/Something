@@ -169,6 +169,26 @@ namespace Database.EntityFramework.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CompanyUsers",
+                columns: table => new
+                {
+                    CompanyUsersId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    UserId = table.Column<string>(nullable: true),
+                    CompanyId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CompanyUsers", x => x.CompanyUsersId);
+                    table.ForeignKey(
+                        name: "FK_CompanyUsers_Companies_CompanyId",
+                        column: x => x.CompanyId,
+                        principalTable: "Companies",
+                        principalColumn: "CompanyId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Projects",
                 columns: table => new
                 {
@@ -228,6 +248,11 @@ namespace Database.EntityFramework.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_CompanyUsers_CompanyId",
+                table: "CompanyUsers",
+                column: "CompanyId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Projects_CompanyId",
                 table: "Projects",
                 column: "CompanyId");
@@ -249,6 +274,9 @@ namespace Database.EntityFramework.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "CompanyUsers");
 
             migrationBuilder.DropTable(
                 name: "Projects");

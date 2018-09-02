@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180825160622_InitialCreate")]
+    [Migration("20180902110914_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,47 +19,7 @@ namespace Database.EntityFramework.Migrations
                 .HasAnnotation("ProductVersion", "2.2.0-preview1-35029")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Database.Entities.Models.Company", b =>
-                {
-                    b.Property<int>("CompanyId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("CreatedBy");
-
-                    b.Property<DateTime>("CreatedOn");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("CompanyId");
-
-                    b.ToTable("Companies");
-                });
-
-            modelBuilder.Entity("Database.Entities.Models.Project", b =>
-                {
-                    b.Property<int>("ProjectId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CompanyId");
-
-                    b.Property<Guid>("CreatedBy");
-
-                    b.Property<DateTime>("CreatedOn");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("ProjectId");
-
-                    b.HasIndex("CompanyId");
-
-                    b.ToTable("Projects");
-                });
-
-            modelBuilder.Entity("Database.EntityFramework.ApplicationUser", b =>
+            modelBuilder.Entity("Common.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -107,6 +67,62 @@ namespace Database.EntityFramework.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("Database.Entities.Company", b =>
+                {
+                    b.Property<int>("CompanyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("CreatedBy");
+
+                    b.Property<DateTime>("CreatedOn");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("CompanyId");
+
+                    b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("Database.Entities.CompanyUsers", b =>
+                {
+                    b.Property<int>("CompanyUsersId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CompanyId");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("CompanyUsersId");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("CompanyUsers");
+                });
+
+            modelBuilder.Entity("Database.Entities.Project", b =>
+                {
+                    b.Property<int>("ProjectId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CompanyId");
+
+                    b.Property<Guid>("CreatedBy");
+
+                    b.Property<DateTime>("CreatedOn");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("ProjectId");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -216,9 +232,17 @@ namespace Database.EntityFramework.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Database.Entities.Models.Project", b =>
+            modelBuilder.Entity("Database.Entities.CompanyUsers", b =>
                 {
-                    b.HasOne("Database.Entities.Models.Company", "Company")
+                    b.HasOne("Database.Entities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Database.Entities.Project", b =>
+                {
+                    b.HasOne("Database.Entities.Company", "Company")
                         .WithMany("Projects")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -234,7 +258,7 @@ namespace Database.EntityFramework.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Database.EntityFramework.ApplicationUser")
+                    b.HasOne("Common.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -242,7 +266,7 @@ namespace Database.EntityFramework.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Database.EntityFramework.ApplicationUser")
+                    b.HasOne("Common.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -255,7 +279,7 @@ namespace Database.EntityFramework.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Database.EntityFramework.ApplicationUser")
+                    b.HasOne("Common.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -263,7 +287,7 @@ namespace Database.EntityFramework.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Database.EntityFramework.ApplicationUser")
+                    b.HasOne("Common.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
