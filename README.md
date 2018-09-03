@@ -8,3 +8,7 @@
 2. Run `Update-Database` from the package manager console after selecting `Database.EntityFramework` project.
 
 Run `docker-compose down` to delete all existing tables and redo step 1 & 2.
+
+## Run client side
+1. Run `yarn install` in the /WebApplication directory to install dependency libs
+2. Run `yarn build` in the same directory to build using webpack
