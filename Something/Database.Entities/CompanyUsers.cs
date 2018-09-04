@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Database.Entities
@@ -7,7 +8,7 @@ namespace Database.Entities
     {
         [Key]
         public int CompanyUsersId { get; set; }
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
         public int CompanyId { get; set; }
 
         [ForeignKey(nameof(CompanyId))]

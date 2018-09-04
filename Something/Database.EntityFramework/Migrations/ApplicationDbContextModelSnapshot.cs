@@ -92,7 +92,7 @@ namespace Database.EntityFramework.Migrations
 
                     b.Property<int>("CompanyId");
 
-                    b.Property<string>("UserId");
+                    b.Property<Guid>("UserId");
 
                     b.HasKey("CompanyUsersId");
 

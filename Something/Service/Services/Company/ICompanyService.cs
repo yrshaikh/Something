@@ -7,7 +7,7 @@ namespace Service.Services.Company
 {
     public interface ICompanyService
     {
-        IEnumerable<CompanyViewModel> GetCompanies();
-        Task<int> CreateCompanyAsync(string value, Guid createdBy);
+        IEnumerable<CompanyViewModel> GetCompanies(Guid userId);
+        int CreateCompany(string value, Guid createdBy);
     }
 }
