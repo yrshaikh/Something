@@ -39,7 +39,7 @@ namespace WebApplication.ApiControllers
             }
 
             var companyId = _companyService.CreateCompany(value, GetUserId());
-            return Created(string.Format("/api/comapnies/get/{0}", companyId), companyId);
+            return Created(string.Format("/api/companies/get/{0}", companyId), companyId);
         }
 
         [HttpGet]
