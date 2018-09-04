@@ -14,3 +14,4 @@ Something/Common/obj*
 /Something/WebApplication/wwwroot/dist/
 /Something/WebApplication/.awcache/
 /Something/WebApplication/dist/
+/Something/WebApplication/wwwroot/css/site.min.css
