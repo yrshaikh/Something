@@ -15,3 +15,10 @@ Run `docker-compose down` to delete all existing tables and redo step 1 & 2.
     1. Database=db
     2. Uid=root
     3. Pwd=mysql
+
+## Run client side
+1. Run `yarn install` in the /WebApplication directory to install dependency libs
+2. Run `yarn build` in the same directory to build using webpack
+
+To add any new dependencies in the client side, please use `yarn add` (not `npm`) and don't forget to commit the updated 
+`yarn.lock` file.
