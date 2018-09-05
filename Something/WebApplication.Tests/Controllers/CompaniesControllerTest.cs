@@ -40,7 +40,7 @@ namespace WebApplication.Tests.Controllers
         public async Task PostMethod_ValidInput_ReturnsCorrectResponse(string companyName)
         {
             var result = await _controller.Object.Post(companyName);
-            _companyService.Verify(x => x.CreateCompanyAsync(companyName, Guid.Parse(mockedUserId)));
+            _companyService.Verify(x => x.CreateCompany(companyName, Guid.Parse(mockedUserId)));
             Assert.AreEqual(typeof(CreatedAtActionResult), result.GetType());
         }
     }
