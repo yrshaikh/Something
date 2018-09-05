@@ -4,6 +4,7 @@ using System.Linq;
 using Database.EntityFramework;
 using Service.ViewModels.Company;
 using System.Threading.Tasks;
+using Database.Entities;
 
 namespace Service.Services.Company
 {
@@ -16,10 +17,14 @@ namespace Service.Services.Company
             _dbContext = dbContext;
         }
 
-        public IEnumerable<CompanyViewModel> GetCompanies()
+        public IEnumerable<CompanyViewModel> GetCompanies(Guid userId)
         {
+            var companies = _dbContext
+                                    .CompanyUsers
+                                    .Where(x => x.UserId == userId)
+                                    .Select(x => x.Company).ToList();
+
             var companiesVm = new List<CompanyViewModel>();
-            var companies = _dbContext.Companies.ToList();
             foreach (var company in companies)
             {
                 companiesVm.Add(new CompanyViewModel(company.CompanyId, company.Name));
@@ -27,12 +32,15 @@ namespace Service.Services.Company
             return companiesVm;
         }
 
-        public async Task<int> CreateCompanyAsync(string value, Guid createdBy)
+        public int CreateCompany(string value, Guid createdBy)
         {
             var company = new Database.Entities.Company { Name = value, CreatedBy = createdBy, CreatedOn = DateTime.Now };
-            _dbContext.Companies.Add(company);
-            var companyId = await _dbContext.SaveChangesAsync();
-            return companyId;
+            var companyUser = new CompanyUsers() { Company = company, UserId = createdBy };
+
+            _dbContext.CompanyUsers.Add(companyUser);
+            _dbContext.SaveChanges();
+            
+            return companyUser.CompanyId;
         }
     }
 }

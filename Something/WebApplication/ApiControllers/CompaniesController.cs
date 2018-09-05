@@ -25,7 +25,7 @@ namespace WebApplication.ApiControllers
         [HttpGet]
         public IEnumerable<CompanyViewModel> Get()
         {
-            var companies = _companyService.GetCompanies();
+            var companies = _companyService.GetCompanies(GetUserId());
             return companies;
         }
         
@@ -33,13 +33,19 @@ namespace WebApplication.ApiControllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]string value)
         {
-            if (string.IsNullOrEmpty(value) || value.Length < 3)
+            if (string.IsNullOrWhiteSpace(value) || value.Length < 3)
             {
                 return BadRequest(value);
             }
 
             var companyId = await _companyService.CreateCompanyAsync(value, GetUserId());
             return CreatedAtAction("Get", new { id = companyId }, companyId);
+        }
+
+        [HttpGet]
+        public CompanyViewModel Get(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
