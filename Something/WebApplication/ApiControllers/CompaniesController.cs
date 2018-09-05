@@ -38,8 +38,8 @@ namespace WebApplication.ApiControllers
                 return BadRequest(value);
             }
 
-            var companyId = _companyService.CreateCompanyAsync(value, GetUserId()).ConfigureAwait(false);
-            return Created(string.Empty, companyId);
+            var companyId = await _companyService.CreateCompanyAsync(value, GetUserId());
+            return CreatedAtAction("Get", new { id = companyId }, companyId);
         }
     }
 }

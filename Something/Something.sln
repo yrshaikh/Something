@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database.EntityFramework", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{A48DBED9-A621-4403-B759-1078CC1E7ED9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{BC7BAA50-1F30-4862-9981-14388AD4E24D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{BC7BAA50-1F30-4862-9981-14388AD4E24D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication.Tests", "WebApplication.Tests\WebApplication.Tests.csproj", "{14685153-9AC9-4AC4-8DD6-9891186A15D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BC7BAA50-1F30-4862-9981-14388AD4E24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC7BAA50-1F30-4862-9981-14388AD4E24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC7BAA50-1F30-4862-9981-14388AD4E24D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14685153-9AC9-4AC4-8DD6-9891186A15D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14685153-9AC9-4AC4-8DD6-9891186A15D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14685153-9AC9-4AC4-8DD6-9891186A15D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14685153-9AC9-4AC4-8DD6-9891186A15D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

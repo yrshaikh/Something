@@ -31,7 +31,7 @@ namespace Service.Services.Company
         {
             var company = new Database.Entities.Company { Name = value, CreatedBy = createdBy, CreatedOn = DateTime.Now };
             _dbContext.Companies.Add(company);
-            var companyId = await _dbContext.SaveChangesAsync().ConfigureAwait(false);
+            var companyId = await _dbContext.SaveChangesAsync();
             return companyId;
         }
     }
