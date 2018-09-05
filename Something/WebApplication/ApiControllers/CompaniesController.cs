@@ -42,7 +42,7 @@ namespace WebApplication.ApiControllers
             return CreatedAtAction("Get", new { id = companyId }, companyId);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public CompanyViewModel Get(int id)
         {
             throw new NotImplementedException();
