@@ -46,8 +46,7 @@ namespace Service.Services.Company
         public bool HasAnyCompany(Guid userId)
         {
             return _dbContext.CompanyUsers
-                    .Where(x => x.UserId == userId)
-                    .Select(x => x.Company).Any();
+                    .Any(x => x.UserId == userId);
         }
     }
 }
