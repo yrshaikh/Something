@@ -14,7 +14,7 @@ namespace WebApplication.Tests.Controllers
     {
         private Mock<CompaniesController> _controller;
         private Mock<ICompanyService> _companyService;
-        private string mockedUserId = "ec18d8c3-ceac-4a8f-871d-97c9912ac68e";
+        private readonly string mockedUserId = "ec18d8c3-ceac-4a8f-871d-97c9912ac68e";
 
         [SetUp]
         public void Init()
