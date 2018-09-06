@@ -39,10 +39,10 @@ namespace WebApplication.ApiControllers
             }
 
             var companyId = _companyService.CreateCompany(value, GetUserId());
-            return Created(string.Format("/api/companies/get/{0}", companyId), companyId);
+            return CreatedAtAction("Get", new { id = companyId }, companyId);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public CompanyViewModel Get(int id)
         {
             throw new NotImplementedException();
