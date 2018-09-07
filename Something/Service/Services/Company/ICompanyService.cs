@@ -9,6 +9,6 @@ namespace Service.Services.Company
     {
         IEnumerable<CompanyViewModel> GetCompanies(Guid userId);
         int CreateCompany(string value, Guid createdBy);
-        bool HasAnyCompany(Guid guid);
+        bool HasAnyCompany(Guid userId);
     }
 }
