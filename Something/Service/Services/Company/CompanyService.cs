@@ -42,5 +42,11 @@ namespace Service.Services.Company
             
             return companyUser.CompanyId;
         }
+
+        public bool HasAnyCompany(Guid userId)
+        {
+            return _dbContext.CompanyUsers
+                    .Any(x => x.UserId == userId);
+        }
     }
 }
