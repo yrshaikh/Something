@@ -10,6 +10,7 @@ using Common.Models;
 using Database.EntityFramework;
 using Service.Services.Company;
 using Swashbuckle.AspNetCore.Swagger;
+using Service.Services.Project;
 
 namespace WebApplication
 {
@@ -85,6 +86,7 @@ namespace WebApplication
         private void RegisterServiceDependency(IServiceCollection services)
         {
             services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<IProjectService, ProjectService>();
         }
     }
 }
