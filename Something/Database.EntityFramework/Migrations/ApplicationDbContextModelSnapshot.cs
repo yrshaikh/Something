@@ -76,6 +76,8 @@ namespace Database.EntityFramework.Migrations
 
                     b.Property<DateTime>("CreatedOn");
 
+                    b.Property<bool>("IsClosed");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
@@ -112,6 +114,8 @@ namespace Database.EntityFramework.Migrations
 
                     b.Property<DateTime>("CreatedOn");
 
+                    b.Property<bool>("IsClosed");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
@@ -131,6 +135,8 @@ namespace Database.EntityFramework.Migrations
                     b.Property<string>("Descripton");
 
                     b.Property<DateTime?>("EndDate");
+
+                    b.Property<bool>("IsClosed");
 
                     b.Property<string>("Name")
                         .IsRequired()

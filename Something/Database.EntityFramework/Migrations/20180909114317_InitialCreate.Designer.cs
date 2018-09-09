@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180907162401_InitialCreate")]
+    [Migration("20180909114317_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,6 +78,8 @@ namespace Database.EntityFramework.Migrations
 
                     b.Property<DateTime>("CreatedOn");
 
+                    b.Property<bool>("IsClosed");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
@@ -114,6 +116,8 @@ namespace Database.EntityFramework.Migrations
 
                     b.Property<DateTime>("CreatedOn");
 
+                    b.Property<bool>("IsClosed");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
@@ -133,6 +137,8 @@ namespace Database.EntityFramework.Migrations
                     b.Property<string>("Descripton");
 
                     b.Property<DateTime?>("EndDate");
+
+                    b.Property<bool>("IsClosed");
 
                     b.Property<string>("Name")
                         .IsRequired()

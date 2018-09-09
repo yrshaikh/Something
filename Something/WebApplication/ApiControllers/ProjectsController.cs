@@ -35,7 +35,7 @@ namespace WebApplication.ApiControllers
             }
 
             var projectId = _projectService.CreateProject(project);
-            _sprintService.CreateSprint(new CreateSprintViewModel { ProjectId = projectId, Name = "Backlog" });
+            _sprintService.CreateSprint(new SprintCreateViewModel { ProjectId = projectId, Name = "Backlog" });
             return CreatedAtAction("Get", new { id = projectId }, projectId);
         }
 

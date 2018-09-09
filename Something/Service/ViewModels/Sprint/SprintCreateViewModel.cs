@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Service.ViewModels.Sprint
 {
-    public class CreateSprintViewModel
+    public class SprintCreateViewModel
     {
-        [Required]
-        public int SprintId { get; set; }
-
         [Required]
         public int ProjectId { get; set; }
 

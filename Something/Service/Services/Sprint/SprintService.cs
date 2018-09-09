@@ -4,7 +4,7 @@ namespace Service.Services.Sprint
 {
     public class SprintService : ISprintService
     {
-        public int CreateSprint(CreateSprintViewModel sprint)
+        public int CreateSprint(SprintCreateViewModel sprint)
         {
             throw new System.NotImplementedException();
         }

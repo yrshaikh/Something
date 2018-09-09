@@ -5,6 +5,6 @@ namespace Service.Services.Sprint
 {
     public interface ISprintService
     {
-        int CreateSprint(CreateSprintViewModel sprint);
+        int CreateSprint(SprintCreateViewModel sprint);
     }
 }

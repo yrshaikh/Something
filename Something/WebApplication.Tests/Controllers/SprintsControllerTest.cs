@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
-using Service.Services.Project;
 using Service.Services.Sprint;
-using Service.ViewModels.Project;
 using Service.ViewModels.Sprint;
 using System.Threading.Tasks;
 using WebApplication.ApiControllers;
@@ -12,20 +10,17 @@ using WebApplication.Tests.Mocks;
 namespace WebApplication.Tests.Controllers
 {
     [TestFixture]
-    public class ProjectsControllerTest : BaseControllerTest
+    public class SprintsControllerTest : BaseControllerTest
     {
-        private Mock<ProjectsController> _controller;
-        private Mock<IProjectService> _projectService;
+        private Mock<SprintsController> _controller;
         private Mock<ISprintService> _sprintService;
-
+       
         [SetUp]
         public void Init()
         {
-            _projectService = new Mock<IProjectService>();
             _sprintService = new Mock<ISprintService>();
-            _controller = new Mock<ProjectsController>(
+            _controller = new Mock<SprintsController>(
                 MockedUser.GetUserManager(mockedUserId).Object, 
-                _projectService.Object,
                 _sprintService.Object
             ) { CallBase = true };
         }
@@ -34,7 +29,7 @@ namespace WebApplication.Tests.Controllers
         public async Task PostMethod_InvalidInput_ReturnsBadRequest()
         {
             _controller.Object.ModelState.AddModelError("key", "error");
-            var result = await _controller.Object.Post(It.IsAny<ProjectCreateViewModel>());
+            var result = await _controller.Object.Post(It.IsAny<SprintCreateViewModel>());
             Assert.AreEqual(typeof(BadRequestResult), result.GetType());
         }
 
@@ -42,25 +37,15 @@ namespace WebApplication.Tests.Controllers
         [TestCase(1, "Baman Enterprises")]
         [TestCase(1, "Kasai Express")]
         [TestCase(1, "Khapun Khap")]
-        public async Task PostMethod_ValidInput_ReturnsCorrectResponse(int companyId, string projectName)
+        public async Task PostMethod_ValidInput_ReturnsCorrectResponse(int projectId, string sprintName)
         {
-            var mockedProjectId = 1;
-            var sprintName = "Backlog";
-
-            var project = new ProjectCreateViewModel { CompanyId = companyId, Name = projectName };
-            _projectService.Setup(x => x.CreateProject(It.IsAny<ProjectCreateViewModel>())).Returns(mockedProjectId);
-
+            var project = new SprintCreateViewModel { ProjectId = projectId, Name = sprintName};
             var result = await _controller.Object.Post(project);
-            _projectService.Verify(x => 
-                x.CreateProject(
-                    It.Is<ProjectCreateViewModel>(
-                        p => p.CompanyId == companyId && p.Name == projectName)
-            ));
 
-            _sprintService.Verify(x =>
+            _sprintService.Verify(x => 
                 x.CreateSprint(
                     It.Is<SprintCreateViewModel>(
-                        p => p.ProjectId == mockedProjectId && p.Name == sprintName)
+                        p => p.ProjectId == projectId && p.Name == sprintName)
             ));
 
             Assert.AreEqual(typeof(CreatedAtActionResult), result.GetType());
