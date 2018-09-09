@@ -3,13 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>aspnet-WebApplication-D3D798BC-B003-4465-9612-EBA9E6B777B9</UserSecretsId>
-    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.9</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="dist\**" />
     <Compile Remove="wwwroot\**" />
+    <Content Remove="dist\**" />
     <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="dist\**" />
     <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="dist\**" />
     <None Remove="wwwroot\**" />
   </ItemGroup>
 
