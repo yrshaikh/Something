@@ -25,5 +25,7 @@ namespace Database.Entities
         public Company Company { get; set; }
 
         public ICollection<Sprint> Sprints { get; set; }
+
+        public bool IsClosed { get; set; }
     }
 }

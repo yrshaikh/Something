@@ -4,7 +4,9 @@ using Common.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Service.Services.Project;
+using Service.Services.Sprint;
 using Service.ViewModels.Project;
+using Service.ViewModels.Sprint;
 
 namespace WebApplication.ApiControllers
 {
@@ -13,11 +15,16 @@ namespace WebApplication.ApiControllers
     public class ProjectsController : BaseApiController
     {
         private readonly IProjectService _projectService;
+        private readonly ISprintService _sprintService;
 
-        public ProjectsController(UserManager<ApplicationUser> userManager, IProjectService projectService) : base(userManager)
+        public ProjectsController(UserManager<ApplicationUser> userManager
+            , IProjectService projectService
+            , ISprintService sprintService) : base(userManager)
         {
             _projectService = projectService;
+            _sprintService = sprintService;
         }
+
         // POST: api/Companies
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]ProjectCreateViewModel project)
@@ -27,8 +34,9 @@ namespace WebApplication.ApiControllers
                 return BadRequest();
             }
 
-            var companyId = _projectService.CreateProject(project);
-            return CreatedAtAction("Get", new { id = companyId }, companyId);
+            var projectId = _projectService.CreateProject(project);
+            _sprintService.CreateSprint(new CreateSprintViewModel { ProjectId = projectId, Name = "Backlog" });
+            return CreatedAtAction("Get", new { id = projectId }, projectId);
         }
 
         [HttpGet("{id}")]

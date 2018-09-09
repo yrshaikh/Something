@@ -9,6 +9,6 @@ namespace Service.ViewModels.Project
 
         [Required]
         [MinLength(3)]
-        public string ProjectName { get; set; }
+        public string Name { get; set; }
     }
 }

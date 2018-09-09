@@ -2,7 +2,9 @@
 using Moq;
 using NUnit.Framework;
 using Service.Services.Project;
+using Service.Services.Sprint;
 using Service.ViewModels.Project;
+using Service.ViewModels.Sprint;
 using System;
 using System.Threading.Tasks;
 using WebApplication.ApiControllers;
@@ -15,13 +17,20 @@ namespace WebApplication.Tests.Controllers
     {
         private Mock<ProjectsController> _controller;
         private Mock<IProjectService> _projectService;
+        private Mock<ISprintService> _sprintService;
+       
         private readonly string mockedUserId = "ec18d8c3-ceac-4a8f-871d-97c9912ac68e";
 
         [SetUp]
         public void Init()
         {
             _projectService = new Mock<IProjectService>();
-            _controller = new Mock<ProjectsController>(MockedUser.GetUserManager(mockedUserId).Object, _projectService.Object) { CallBase = true };
+            _sprintService = new Mock<ISprintService>();
+            _controller = new Mock<ProjectsController>(
+                MockedUser.GetUserManager(mockedUserId).Object, 
+                _projectService.Object,
+                _sprintService.Object
+            ) { CallBase = true };
         }
 
         [Test]
@@ -38,15 +47,25 @@ namespace WebApplication.Tests.Controllers
         [TestCase(1, "Khapun Khap")]
         public async Task PostMethod_ValidInput_ReturnsCorrectResponse(int companyId, string projectName)
         {
-            var project = new ProjectCreateViewModel();
-            project.CompanyId = companyId;
-            project.ProjectName = projectName;
+            var mockedProjectId = 1;
+            var sprintName = "Backlog";
+
+            var project = new ProjectCreateViewModel { CompanyId = companyId, Name = projectName };
+            _projectService.Setup(x => x.CreateProject(It.IsAny<ProjectCreateViewModel>())).Returns(mockedProjectId);
+
             var result = await _controller.Object.Post(project);
             _projectService.Verify(x => 
                 x.CreateProject(
                     It.Is<ProjectCreateViewModel>(
-                        p => p.CompanyId == companyId && p.ProjectName == projectName)
+                        p => p.CompanyId == companyId && p.Name == projectName)
             ));
+
+            _sprintService.Verify(x =>
+                x.CreateSprint(
+                    It.Is<CreateSprintViewModel>(
+                        p => p.ProjectId == mockedProjectId && p.Name == sprintName)
+            ));
+
             Assert.AreEqual(typeof(CreatedAtActionResult), result.GetType());
         }
     }

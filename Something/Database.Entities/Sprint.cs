@@ -23,5 +23,7 @@ namespace Database.Entities
 
         [ForeignKey(nameof(ProjectId))]
         public Project Project { get; set; }
+
+        public bool IsClosed { get; set; }
     }
 }

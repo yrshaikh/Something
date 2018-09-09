@@ -20,5 +20,6 @@ namespace Database.Entities
         public Guid CreatedBy { get; set; }
 
         public ICollection<Project> Projects { get; set; }
+        public bool IsClosed { get; set; }
     }
 }
