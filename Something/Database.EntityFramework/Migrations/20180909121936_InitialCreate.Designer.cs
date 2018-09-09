@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180909114317_InitialCreate")]
+    [Migration("20180909121936_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -134,8 +134,6 @@ namespace Database.EntityFramework.Migrations
                     b.Property<int>("SprintId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Descripton");
-
                     b.Property<DateTime?>("EndDate");
 
                     b.Property<bool>("IsClosed");
@@ -152,7 +150,7 @@ namespace Database.EntityFramework.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Sprint");
+                    b.ToTable("Sprints");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

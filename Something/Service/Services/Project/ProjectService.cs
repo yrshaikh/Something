@@ -1,4 +1,5 @@
-﻿using Service.ViewModels.Project;
+﻿using Database.EntityFramework;
+using Service.ViewModels.Project;
 using System;
 using System.Collections.Generic;
 
@@ -6,9 +7,27 @@ namespace Service.Services.Project
 {
     public class ProjectService : IProjectService
     {
-        public int CreateProject(ProjectCreateViewModel project)
+        private readonly ApplicationDbContext _dbContext;
+
+        public ProjectService(ApplicationDbContext dbContext)
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
+        }
+
+        public int CreateProject(ProjectCreateViewModel project, Guid createdBy)
+        {
+            var projectToBeCreated = new Database.Entities.Project()
+            {
+                CompanyId = project.CompanyId,
+                Name = project.Name,
+                CreatedBy = createdBy,
+                CreatedOn = DateTime.Now
+            };
+
+            _dbContext.Projects.Add(projectToBeCreated);
+            _dbContext.SaveChanges();
+
+            return projectToBeCreated.ProjectId;
         }
 
         public IEnumerable<ProjectViewModel> GetProjects(int companyId)

@@ -48,13 +48,13 @@ namespace WebApplication.Tests.Controllers
             var sprintName = "Backlog";
 
             var project = new ProjectCreateViewModel { CompanyId = companyId, Name = projectName };
-            _projectService.Setup(x => x.CreateProject(It.IsAny<ProjectCreateViewModel>())).Returns(mockedProjectId);
+            _projectService.Setup(x => x.CreateProject(It.IsAny<ProjectCreateViewModel>(), mockedUserGuid)).Returns(mockedProjectId);
 
             var result = await _controller.Object.Post(project);
             _projectService.Verify(x => 
                 x.CreateProject(
                     It.Is<ProjectCreateViewModel>(
-                        p => p.CompanyId == companyId && p.Name == projectName)
+                        p => p.CompanyId == companyId && p.Name == projectName), mockedUserGuid
             ));
 
             _sprintService.Verify(x =>

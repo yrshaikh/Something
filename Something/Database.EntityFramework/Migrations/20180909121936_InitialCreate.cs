@@ -213,13 +213,12 @@ namespace Database.EntityFramework.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Sprint",
+                name: "Sprints",
                 columns: table => new
                 {
                     SprintId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
-                    Descripton = table.Column<string>(nullable: true),
                     StartDate = table.Column<DateTime>(nullable: true),
                     EndDate = table.Column<DateTime>(nullable: true),
                     ProjectId = table.Column<int>(nullable: false),
@@ -227,9 +226,9 @@ namespace Database.EntityFramework.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Sprint", x => x.SprintId);
+                    table.PrimaryKey("PK_Sprints", x => x.SprintId);
                     table.ForeignKey(
-                        name: "FK_Sprint_Projects_ProjectId",
+                        name: "FK_Sprints_Projects_ProjectId",
                         column: x => x.ProjectId,
                         principalTable: "Projects",
                         principalColumn: "ProjectId",
@@ -284,8 +283,8 @@ namespace Database.EntityFramework.Migrations
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sprint_ProjectId",
-                table: "Sprint",
+                name: "IX_Sprints_ProjectId",
+                table: "Sprints",
                 column: "ProjectId");
         }
 
@@ -310,7 +309,7 @@ namespace Database.EntityFramework.Migrations
                 name: "CompanyUsers");
 
             migrationBuilder.DropTable(
-                name: "Sprint");
+                name: "Sprints");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

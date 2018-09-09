@@ -132,8 +132,6 @@ namespace Database.EntityFramework.Migrations
                     b.Property<int>("SprintId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Descripton");
-
                     b.Property<DateTime?>("EndDate");
 
                     b.Property<bool>("IsClosed");
@@ -150,7 +148,7 @@ namespace Database.EntityFramework.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Sprint");
+                    b.ToTable("Sprints");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

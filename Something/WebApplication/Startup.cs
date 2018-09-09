@@ -11,6 +11,7 @@ using Database.EntityFramework;
 using Service.Services.Company;
 using Swashbuckle.AspNetCore.Swagger;
 using Service.Services.Project;
+using Service.Services.Sprint;
 
 namespace WebApplication
 {
@@ -96,6 +97,7 @@ namespace WebApplication
         {
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<IProjectService, ProjectService>();
+            services.AddTransient<ISprintService, SprintService>();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Database.EntityFramework
         public DbSet<Company> Companies { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<CompanyUsers> CompanyUsers { get; set; }
+        public DbSet<Sprint> Sprints { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
