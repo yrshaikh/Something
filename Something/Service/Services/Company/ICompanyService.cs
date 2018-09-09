@@ -1,7 +1,6 @@
 ﻿using Service.ViewModels.Company;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Service.Services.Company
 {
@@ -9,6 +8,6 @@ namespace Service.Services.Company
     {
         IEnumerable<CompanyViewModel> GetCompanies(Guid userId);
         int CreateCompany(string value, Guid createdBy);
-        bool HasAnyCompany(Guid guid);
+        bool HasAnyCompany(Guid userId);
     }
 }

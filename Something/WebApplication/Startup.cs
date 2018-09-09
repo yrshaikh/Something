@@ -10,6 +10,8 @@ using Common.Models;
 using Database.EntityFramework;
 using Service.Services.Company;
 using Swashbuckle.AspNetCore.Swagger;
+using Service.Services.Project;
+using Service.Services.Sprint;
 
 namespace WebApplication
 {
@@ -25,6 +27,15 @@ namespace WebApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+            });
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("IdentityConnection")));
 
@@ -85,6 +96,8 @@ namespace WebApplication
         private void RegisterServiceDependency(IServiceCollection services)
         {
             services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<IProjectService, ProjectService>();
+            services.AddTransient<ISprintService, SprintService>();
         }
     }
 }

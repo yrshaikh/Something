@@ -55,7 +55,8 @@ namespace Database.EntityFramework.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
-                    CreatedBy = table.Column<Guid>(nullable: false)
+                    CreatedBy = table.Column<Guid>(nullable: false),
+                    IsClosed = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -197,7 +198,8 @@ namespace Database.EntityFramework.Migrations
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     CreatedBy = table.Column<Guid>(nullable: false),
-                    CompanyId = table.Column<int>(nullable: false)
+                    CompanyId = table.Column<int>(nullable: false),
+                    IsClosed = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -207,6 +209,29 @@ namespace Database.EntityFramework.Migrations
                         column: x => x.CompanyId,
                         principalTable: "Companies",
                         principalColumn: "CompanyId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sprints",
+                columns: table => new
+                {
+                    SprintId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    StartDate = table.Column<DateTime>(nullable: true),
+                    EndDate = table.Column<DateTime>(nullable: true),
+                    ProjectId = table.Column<int>(nullable: false),
+                    IsClosed = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sprints", x => x.SprintId);
+                    table.ForeignKey(
+                        name: "FK_Sprints_Projects_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "Projects",
+                        principalColumn: "ProjectId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -256,6 +281,11 @@ namespace Database.EntityFramework.Migrations
                 name: "IX_Projects_CompanyId",
                 table: "Projects",
                 column: "CompanyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sprints_ProjectId",
+                table: "Sprints",
+                column: "ProjectId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -279,13 +309,16 @@ namespace Database.EntityFramework.Migrations
                 name: "CompanyUsers");
 
             migrationBuilder.DropTable(
-                name: "Projects");
+                name: "Sprints");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Projects");
 
             migrationBuilder.DropTable(
                 name: "Companies");

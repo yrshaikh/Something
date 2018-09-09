@@ -76,6 +76,8 @@ namespace Database.EntityFramework.Migrations
 
                     b.Property<DateTime>("CreatedOn");
 
+                    b.Property<bool>("IsClosed");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
@@ -112,6 +114,8 @@ namespace Database.EntityFramework.Migrations
 
                     b.Property<DateTime>("CreatedOn");
 
+                    b.Property<bool>("IsClosed");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
@@ -121,6 +125,30 @@ namespace Database.EntityFramework.Migrations
                     b.HasIndex("CompanyId");
 
                     b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("Database.Entities.Sprint", b =>
+                {
+                    b.Property<int>("SprintId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("EndDate");
+
+                    b.Property<bool>("IsClosed");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<int>("ProjectId");
+
+                    b.Property<DateTime?>("StartDate");
+
+                    b.HasKey("SprintId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Sprints");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -243,6 +271,14 @@ namespace Database.EntityFramework.Migrations
                     b.HasOne("Database.Entities.Company", "Company")
                         .WithMany("Projects")
                         .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Database.Entities.Sprint", b =>
+                {
+                    b.HasOne("Database.Entities.Project", "Project")
+                        .WithMany("Sprints")
+                        .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -1,25 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Database.Entities
 {
-    public class Company
+    public class Sprint
     {
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CompanyId { get; set; }
+        public int SprintId { get; set; }
 
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
 
-        public DateTime CreatedOn { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
-        public Guid CreatedBy { get; set; }
+        public int ProjectId { get; set; }
 
-        public ICollection<Project> Projects { get; set; }
+        [ForeignKey(nameof(ProjectId))]
+        public Project Project { get; set; }
+
         public bool IsClosed { get; set; }
     }
 }

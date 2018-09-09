@@ -10,11 +10,10 @@ using WebApplication.Tests.Mocks;
 namespace WebApplication.Tests.Controllers
 {
     [TestFixture]
-    public class CompaniesControllerTest
+    public class CompaniesControllerTest : BaseControllerTest
     {
         private Mock<CompaniesController> _controller;
         private Mock<ICompanyService> _companyService;
-        private readonly string mockedUserId = "ec18d8c3-ceac-4a8f-871d-97c9912ac68e";
 
         [SetUp]
         public void Init()
