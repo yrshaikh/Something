@@ -14,7 +14,7 @@ namespace Service.Services.Sprint
 
         public int CreateSprint(SprintCreateViewModel sprint)
         {
-            var sprintToBeCreated = new Database.Entities.Sprint()
+            var sprintToBeCreated = new Database.Entities.Sprint
             {
                 ProjectId = sprint.ProjectId,
                 Name = sprint.Name,

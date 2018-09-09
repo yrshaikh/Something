@@ -7,8 +7,4 @@ namespace WebApplication.ApiControllers
     public class IssuesController : Controller
     {
     }
-
-
-
-
 }

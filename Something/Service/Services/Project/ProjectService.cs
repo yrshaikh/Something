@@ -16,7 +16,7 @@ namespace Service.Services.Project
 
         public int CreateProject(ProjectCreateViewModel project, Guid createdBy)
         {
-            var projectToBeCreated = new Database.Entities.Project()
+            var projectToBeCreated = new Database.Entities.Project
             {
                 CompanyId = project.CompanyId,
                 Name = project.Name,
