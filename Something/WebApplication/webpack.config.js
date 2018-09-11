@@ -4,7 +4,7 @@ module.exports = {
     mode: 'development',
     entry: {
         main: './wwwroot/js/index.tsx',
-        login: './wwwroot/js/login/login.index.tsx'
+        login: './wwwroot/js/login-app/LoginEntry.tsx'
     },
     output: {
         path: path.resolve(__dirname, 'wwwroot/dist'),

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import Login from './Login';
+import LoginApp from './LoginApp';
 
 
 ReactDOM.render(
-    <Login />,
+    <LoginApp />,
     document.getElementById('login-root')
 );
