@@ -1,2 +1,26 @@
-.splash {
+.login-signup {
+    &--login {
+        .pane {
+            width: 50%;
+            height: 100%;
+            padding: 200px 50px;
+            float: left;
+        }
+        .splash {
+            background: #40a9ff;
+            color: #fff;
+            &--header{
+                font-size: 32px;
+            }
+            &--subtitle{
+                font-size: 18px;
+            }
+        }
+        .login-form {
+            width: 400px;
+            .ant-input{
+                min-height: 10px;
+            }
+        }
+    }
 }
