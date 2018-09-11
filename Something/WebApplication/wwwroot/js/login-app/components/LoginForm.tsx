@@ -11,10 +11,18 @@ class SimpleForm extends React.Component<LoginProps & FormComponentProps> {
     constructor(props: LoginProps & FormComponentProps) {
         super(props);
     }
+    handleSubmit = (e:any) => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+    }
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <Form className="pane login-form">
+            <Form onSubmit={this.handleSubmit} className="pane login-form">
                 <h3>Sign In</h3>
                 <FormItem>
                     {getFieldDecorator('userName', {
