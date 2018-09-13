@@ -1,26 +1,31 @@
-.login-signup {
-    &--login {
-        .pane {
-            width: 50%;
-            height: 100%;
-            padding: 200px 50px;
-            float: left;
-        }
-        .splash {
-            background: #40a9ff;
-            color: #fff;
-            &--header{
-                font-size: 32px;
-            }
-            &--subtitle{
-                font-size: 18px;
-            }
-        }
-        .login-form {
+.authentication {
+    .ant-input {
+        min-height: 10px !important;
+    }
+    .splash {
+        background: linear-gradient(to bottom, #2f54eb 0%, #3a40d4 100%);
+        color: #fff;
+        &--inner {
             width: 400px;
-            .ant-input{
-                min-height: 10px;
-            }
+            margin: 0 auto;
+        }
+        &--header {
+            font-size: 32px;
+        }
+        img {
+            margin-top: 30px;
+            width: 400px;
+        }
+    }
+    .pane {
+        height: 100%;
+        padding: 10% 10px 10px 0px;
+    }
+    .login, .register {
+        width: 400px;
+        margin: 0 auto;
+        h2 {
+            font-size: 32px;
         }
     }
 }

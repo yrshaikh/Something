@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 import { FormComponentProps } from 'antd/lib/form'
 
 const FormItem = Form.Item;
@@ -22,34 +22,32 @@ class SimpleForm extends React.Component<LoginProps & FormComponentProps> {
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <Form onSubmit={this.handleSubmit} className="pane login-form">
-                <h3>Sign In</h3>
-                <FormItem>
-                    {getFieldDecorator('userName', {
-                        rules: [{ required: true, message: 'Please input your username!' }],
-                    })(
-                        <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
-                    )}
-                </FormItem>
-                <FormItem>
-                    {getFieldDecorator('password', {
-                        rules: [{ required: true, message: 'Please input your Password!' }],
-                    })(
-                        <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
-                    )}
-                </FormItem>
-                <FormItem>
-                    {getFieldDecorator('remember', {
-                        valuePropName: 'checked',
-                        initialValue: true,
-                    })(
-                        <Checkbox>Remember me</Checkbox>
-                    )}
-                    <Button type="primary" htmlType="submit" className="login-form-button">
-                        Log in
+            <div className="pane ant-col-md-12">
+                <Form onSubmit={this.handleSubmit} className="login">
+                    <h2>Login to your account</h2>
+                    <b>Email address</b>
+                    <FormItem>
+                        {getFieldDecorator('userName', {
+                            rules: [{ required: true, message: 'Please input your username!' }],
+                        })(
+                            <Input className="ant-input-lg" placeholder="Username" />
+                        )}
+                    </FormItem>
+                    <b>Password</b>
+                    <FormItem>
+                        {getFieldDecorator('password', {
+                            rules: [{ required: true, message: 'Please input your Password!' }],
+                        })(
+                            <Input className="ant-input-lg" type="password" placeholder="Password" />
+                        )}
+                    </FormItem>
+                    <FormItem>
+                        <Button type="primary" htmlType="submit" className="login-form-button ovrd-btn">
+                            Log in
                     </Button>
-                </FormItem>
-            </Form>
+                    </FormItem>
+                </Form>
+            </div>
         );
     }
 }
