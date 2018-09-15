@@ -1,6 +1,7 @@
-import * as React from 'react';
-import { Form, Input, Button } from 'antd';
-import { FormComponentProps } from 'antd/lib/form'
+import * as React from "react";
+import { Form, Input, Button } from "antd";
+import { FormComponentProps } from "antd/lib/form";
+import "./LoginForm.scss";
 
 const FormItem = Form.Item;
 
@@ -15,28 +16,28 @@ class SimpleForm extends React.Component<LoginProps & FormComponentProps> {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                console.log("Received values of form: ", values);
             }
         });
     }
-    render() {
+    render (): JSX.Element {
         const { getFieldDecorator } = this.props.form;
         return (
             <div className="pane ant-col-md-12">
-                <Form onSubmit={this.handleSubmit} className="login">
+                <Form onSubmit={this.handleSubmit} className="LoginForm">
                     <h2>Login to your account</h2>
                     <b>Email address</b>
                     <FormItem>
-                        {getFieldDecorator('userName', {
-                            rules: [{ required: true, message: 'Please input your username!' }],
+                        {getFieldDecorator("userName", {
+                            rules: [{ required: true, message: "Please input your username!" }],
                         })(
                             <Input className="ant-input-lg" placeholder="Username" />
                         )}
                     </FormItem>
                     <b>Password</b>
                     <FormItem>
-                        {getFieldDecorator('password', {
-                            rules: [{ required: true, message: 'Please input your Password!' }],
+                        {getFieldDecorator("password", {
+                            rules: [{ required: true, message: "Please input your Password!" }],
                         })(
                             <Input className="ant-input-lg" type="password" placeholder="Password" />
                         )}
