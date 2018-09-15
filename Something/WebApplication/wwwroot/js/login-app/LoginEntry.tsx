@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import LoginApp from './app';
+
+import LoginApp from './LoginApp';
+
 
 ReactDOM.render(
     <LoginApp />,

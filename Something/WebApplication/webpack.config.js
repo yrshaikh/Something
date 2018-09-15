@@ -3,7 +3,6 @@ const tsImportPluginFactory = require('ts-import-plugin')
 module.exports = {
     mode: 'development',
     entry: {
-        main: './wwwroot/js/index.tsx',
         login: './wwwroot/js/login-app/LoginEntry.tsx'
     },
     output: {

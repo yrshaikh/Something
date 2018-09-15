@@ -1,10 +1,7 @@
 import * as React from 'react';
 
-import './../global.scss';
-import './login-app.scss';
-
-import { LoginForm } from './components/LoginForm/LoginForm';
-import { Splash } from './components/Splash/Splash'
+import { LoginForm } from './components/LoginForm';
+import { Splash } from './components/Splash'
 
 export default class Login extends React.Component<{}, {}> {
     render() {

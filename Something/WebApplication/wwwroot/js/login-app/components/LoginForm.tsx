@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Form, Input, Button } from 'antd';
 import { FormComponentProps } from 'antd/lib/form'
 
-import './LoginForm.scss';
-
 const FormItem = Form.Item;
 
 interface LoginProps {
