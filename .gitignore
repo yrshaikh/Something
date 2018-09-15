@@ -19,3 +19,4 @@ Something/Common/obj*
 /Something/WebApplication/wwwroot/css/*.min.css
 /Something/WebApplication/wwwroot/js/*.min.js
 *.csproj.user
+Something/WebApplication/WebApplication.csproj.user

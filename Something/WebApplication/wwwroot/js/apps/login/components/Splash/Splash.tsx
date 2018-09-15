@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import './Splash.scss';
+
 export class Splash extends React.Component {
     render() {
         return (

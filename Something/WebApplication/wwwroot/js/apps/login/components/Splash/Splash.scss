@@ -1,0 +1,15 @@
+.splash {
+    background: linear-gradient(to bottom, #2f54eb 0%, #3a40d4 100%);
+    color: #fff;
+    &--inner {
+        width: 400px;
+        margin: 0 auto;
+    }
+    &--header {
+        font-size: 32px;
+    }
+    img {
+        margin-top: 30px;
+        width: 400px;
+    }
+}
