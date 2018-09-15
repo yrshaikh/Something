@@ -2,14 +2,13 @@ import * as React from "react";
 import { Form, Input, Button } from "antd";
 import { FormComponentProps } from "antd/lib/form";
 import "./LoginForm.scss";
+import { ILoginProps } from "./../../types/ILoginProps";
 
+// tslint:disable-next-line:typedef
 const FormItem = Form.Item;
 
-interface LoginProps {
-}
-
-class SimpleForm extends React.Component<LoginProps & FormComponentProps> {
-    constructor(props: LoginProps & FormComponentProps) {
+class SimpleForm extends React.Component<ILoginProps & FormComponentProps> {
+    constructor(props: ILoginProps & FormComponentProps) {
         super(props);
     }
     handleSubmit = (e:any) => {
@@ -53,4 +52,5 @@ class SimpleForm extends React.Component<LoginProps & FormComponentProps> {
     }
 }
 
-export const LoginForm = Form.create<LoginProps>()(SimpleForm);
+// tslint:disable-next-line:typedef
+export const LoginForm = Form.create<ILoginProps>()(SimpleForm);
