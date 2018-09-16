@@ -1,4 +1,5 @@
 ﻿@using Common.Models;
+@using Service.ViewModels.Enums;
 @model Service.ViewModels.AccountViewModels.LoginViewModel
 @inject SignInManager<ApplicationUser> SignInManager
 
@@ -11,6 +12,7 @@
 
 <script type="text/javascript">
     window.authenticationPageParams = {
+        pageType: @((int)PageTypeEnum.Login),
         email: "@Model.Email",
         failedAttempt: "@Model.FailedAttempt",
         serverError: "@Model.ServerError",
@@ -18,7 +20,3 @@
 </script>
 
 <script src="~/dist/login.bundle.js"></script>
-
-@section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
-}

@@ -2,7 +2,7 @@ import * as React from "react";
 import { Alert, Button, Form, Input } from "antd";
 import { FormComponentProps } from "antd/lib/form";
 import { IAuthenticationProps } from "../../types/IAuthenticationProps";
-import "./LoginForm.scss";
+import "./RegisterForm.scss";
 
 const FormItem = Form.Item;
 
@@ -25,7 +25,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                     onSubmit={this.handleSubmit}
                     className="LoginForm"
                 >
-                    <h2>Login to your account</h2>
+                    <h2>Create an account</h2>
                     <b>Email address</b>
                     <FormItem>
                         {getFieldDecorator("email", {
@@ -38,7 +38,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                         })(
                             <Input
                                 className="ant-input-lg"
-                                placeholder="someone@example.com"
+                                placeholder="email"
                                 name="Email"
                             />
                         )}
@@ -56,7 +56,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                             <Input
                                 className="ant-input-lg"
                                 type="password"
-                                placeholder="********"
+                                placeholder="Password"
                                 name="Password"
                             />
                         )}
@@ -67,7 +67,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                             htmlType="submit"
                             className="login-form-button ovrd-btn"
                         >
-                            Log in
+                            Create Account
                          </Button>
                     </FormItem>
                     {this.showErrorMessage(
@@ -116,4 +116,4 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
     }
 }
 
-export const LoginForm = Form.create<IAuthenticationProps>()(SimpleForm);
+export const RegisterForm = Form.create<IAuthenticationProps>()(SimpleForm);
