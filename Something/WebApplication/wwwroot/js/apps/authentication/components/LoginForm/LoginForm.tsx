@@ -12,8 +12,8 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
         super(props);
     }
 
-    render (): JSX.Element {
-        if (!this.props) { return null; }
+    render () : JSX.Element {
+        if (!this.props) { return null }
 
         const { getFieldDecorator } = this.props.form;
         return <div className="pane ant-col-md-12">
@@ -68,7 +68,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
         } else if (failedAttempt) {
             messageHeader = "Incorrect Email/Password";
             messageBody = "Please try again or you can reset your password.";
-        } else {
+        } else{
             return null;
         }
 
