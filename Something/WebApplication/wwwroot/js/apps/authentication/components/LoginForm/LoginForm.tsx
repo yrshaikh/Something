@@ -4,7 +4,6 @@ import { FormComponentProps } from "antd/lib/form";
 import "./LoginForm.scss";
 import { IAuthenticationProps } from "../../types/IAuthenticationProps";
 
-// tslint:disable-next-line:typedef
 const FormItem = Form.Item;
 
 class SimpleForm extends React.Component<IAuthenticationProps & FormComponentProps> {
@@ -43,7 +42,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                 })(<Input className="ant-input-lg" type="password" placeholder="Password" name="Password" />)}
             </FormItem>
             <FormItem>
-                <Button type="primary" htmlType="submit" className="login-form-button ovrd-btn">
+                    <Button type="primary" htmlType="submit" className="login-form-button ovrd-btn">
                 Log in
                 </Button>
             </FormItem>
@@ -77,5 +76,4 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
     }
 }
 
-// tslint:disable-next-line:typedef
 export const LoginForm = Form.create<IAuthenticationProps>()(SimpleForm);
