@@ -32,15 +32,15 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                             rules: [
                                 {
                                     message: "Please enter a valid email address.",
-                                    required: true
-                                }
-                            ]
+                                    required: true,
+                                },
+                            ],
                         })(
                             <Input
                                 className="ant-input-lg"
                                 placeholder="email"
                                 name="Email"
-                            />
+                            />,
                         )}
                     </FormItem>
                     <b>Password</b>
@@ -49,16 +49,16 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                             rules: [
                                 {
                                     message: "Password cannot be left blank.",
-                                    required: true
-                                }
-                            ]
+                                    required: true,
+                                },
+                            ],
                         })(
                             <Input
                                 className="ant-input-lg"
                                 type="password"
                                 placeholder="Password"
                                 name="Password"
-                            />
+                            />,
                         )}
                     </FormItem>
                     <FormItem>
@@ -72,7 +72,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                     </FormItem>
                     {this.showErrorMessage(
                         this.props.serverError,
-                        this.props.failedAttempt
+                        this.props.failedAttempt,
                     )}
                 </Form>
             </div>
@@ -86,11 +86,11 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                 e.currentTarget.submit();
             }
         });
-    };
+    }
 
     private showErrorMessage(
         serverError: boolean,
-        failedAttempt: boolean
+        failedAttempt: boolean,
     ): JSX.Element {
         let messageHeader: string;
         let messageBody: string;
