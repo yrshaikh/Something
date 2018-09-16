@@ -2,7 +2,7 @@
 
 namespace Service.ViewModels.AccountViewModels
 {
-    public class LoginViewModel
+    public class LoginViewModel : AuthViewModel
     {
         [Required]
         [EmailAddress]
