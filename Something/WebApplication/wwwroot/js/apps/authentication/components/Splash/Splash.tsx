@@ -2,7 +2,7 @@ import * as React from "react";
 import "./Splash.scss";
 
 export class Splash extends React.Component {
-    render ():JSX.Element {
+    render(): JSX.Element {
         return (
             <div className="Splash pane ant-col-md-12">
                 <div className="Splash--inner">
