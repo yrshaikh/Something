@@ -10,7 +10,7 @@ import { IAuthenticationProps } from "./types/IAuthenticationProps";
 import { PageTypes } from "../common/PageTypeEnum";
 
 export default class Login extends React.Component<{}, {}> {
-    render (): JSX.Element {
+    public render(): JSX.Element {
 
         const params:IAuthenticationProps = (window as any).authenticationPageParams as IAuthenticationProps;
 
