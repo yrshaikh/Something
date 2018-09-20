@@ -22,7 +22,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
         }
 
         const domRepository = this.props.pageType === PageTypes.LOGIN ? new LoginDomRepository() : new RegisterDomRepository();
-        
+
         const { getFieldDecorator } = this.props.form;
         return (
             <div className="pane ant-col-md-12">
