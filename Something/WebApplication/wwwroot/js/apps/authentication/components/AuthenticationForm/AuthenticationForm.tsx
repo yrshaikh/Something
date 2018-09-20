@@ -2,7 +2,11 @@ import * as React from "react";
 import { Alert, Button, Form, Input } from "antd";
 import { FormComponentProps } from "antd/lib/form";
 import { IAuthenticationProps } from "../../types/IAuthenticationProps";
-import "./LoginForm.scss";
+import { IAuthenticationDomRepository } from "../../services/IAuthenticationDomRepository";
+import "./AuthenticationForm.scss";
+import { PageTypes } from "../../../common/PageTypeEnum";
+import { LoginDomRepository } from "../../services/LoginDomRepository";
+import { RegisterDomRepository } from "../../services/RegisterDomRepository";
 
 const FormItem = Form.Item;
 
@@ -12,20 +16,24 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
     }
 
     public render(): JSX.Element {
+
         if (!this.props) {
             return null;
         }
 
+        const domRepository = this.props.pageType === PageTypes.LOGIN ? new LoginDomRepository() : new RegisterDomRepository();
+        
         const { getFieldDecorator } = this.props.form;
         return (
             <div className="pane ant-col-md-12">
                 <Form
-                    action="/account/login"
+                    action={domRepository.getFormSubmitLink()}
                     method="post"
                     onSubmit={this.handleSubmit}
-                    className="LoginForm"
+                    className="AuthForm"
                 >
-                    <h2>Login to your account</h2>
+                    <h2>{domRepository.getHeaderText()}</h2>
+                    <p className="subtitle">{domRepository.getSubtitleText()}</p>
                     <b>Email address</b>
                     <FormItem>
                         {getFieldDecorator("email", {
@@ -67,13 +75,14 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                             htmlType="submit"
                             className="login-form-button ovrd-btn"
                         >
-                            Log in
+                            {domRepository.getButtonText()}
                          </Button>
                     </FormItem>
                     {this.showErrorMessage(
                         this.props.serverError,
                         this.props.failedAttempt,
                     )}
+                    <p className="alternatelink"><a href={domRepository.getAlternateLink()}>{domRepository.getAlternateText()}</a></p>
                 </Form>
             </div>
         );
@@ -88,15 +97,12 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
         });
     }
 
-    private showErrorMessage(
-        serverError: boolean,
-        failedAttempt: boolean,
-    ): JSX.Element {
+    private showErrorMessage = (serverError: boolean, failedAttempt: boolean): JSX.Element => {
         let messageHeader: string;
         let messageBody: string;
         if (serverError) {
-            messageHeader = "What the duck!";
-            messageBody = "Whoops, something went wrong...Unexpected Error.";
+            messageHeader = "Unexpected Error";
+            messageBody = "Whoops, something went wrong...";
         } else if (failedAttempt) {
             messageHeader = "Incorrect Email/Password";
             messageBody = "Please try again or you can reset your password.";
@@ -116,4 +122,4 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
     }
 }
 
-export const LoginForm = Form.create<IAuthenticationProps>()(SimpleForm);
+export const AuthenticationForm = Form.create<IAuthenticationProps>()(SimpleForm);
