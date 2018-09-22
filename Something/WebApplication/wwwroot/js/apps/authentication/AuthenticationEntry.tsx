@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import LoginApp from "./Authentication";
+import { Authentication } from "./Authentication";
 
 ReactDOM.render(
-    <LoginApp />,
+    <Authentication />,
     document.getElementById("login-root"),
 );
