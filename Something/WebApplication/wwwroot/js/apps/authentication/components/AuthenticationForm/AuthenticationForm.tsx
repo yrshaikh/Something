@@ -21,7 +21,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
             return null;
         }
 
-        const container = 'AuthForm';
+        const container = "AuthForm";
 
         const domRepository = this.props.pageTypeId === PageTypes.LOGIN ? new LoginDomRepository() : new RegisterDomRepository();
 
