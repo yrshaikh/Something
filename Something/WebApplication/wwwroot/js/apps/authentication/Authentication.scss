@@ -1,10 +1,7 @@
+@import "../Global.scss";
+
 .authentication {
-    .ant-input {
-        min-height: 10px !important;
-    }
-    
-    .pane {
+    &--pane {
         height: 100%;
-        padding: 10% 10px 10px 0;
     }
 }

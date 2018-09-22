@@ -1,15 +1,10 @@
-body, .ant-form, h1, h2, h3, h4, h5, p, .ant-btn, .ant-input, .ant-form-item, .ant-alert {
-    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-}
+@import 'AntOverrides.scss';
 
-.ovrd-btn.ant-btn {
-    background: #2f54eb;
-    border: 1px solid #2f54eb;
-    padding: 0 24px;
-    border-radius: 100px;
-    font-size: 16px;
-    line-height: 38px;
-    display: inline-block;
-    height: 40px;
-    text-align: center;
+// todo: to stay until, we find a way to override ant design's variables.
+body,
+h1, h2, h3, h4, h5, h6,
+p, a, label, input, b,
+.ant-btn, .ant-input, .ant-form-item,
+.ant-alert {
+    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }

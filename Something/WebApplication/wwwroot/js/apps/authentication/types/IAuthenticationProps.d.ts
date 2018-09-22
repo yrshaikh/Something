@@ -1,7 +1,7 @@
 import { PageTypes } from "../../common/PageTypeEnum";
 
 export interface IAuthenticationProps {
-    pageType: PageTypes;
+    pageTypeId: PageTypes;
     email: string;
     serverError: boolean;
     failedAttempt: boolean;

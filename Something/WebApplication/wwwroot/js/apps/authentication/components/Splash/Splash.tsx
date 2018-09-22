@@ -1,15 +1,16 @@
 import * as React from "react";
+import { PageTypes } from "../../../common/PageTypeEnum";
 import "./Splash.scss";
 
-export class Splash extends React.Component {
-    public render(): JSX.Element {
-        return (
-            <div className="Splash pane ant-col-md-12">
-                <div className="Splash--inner">
-                    <div className="Splash--header">Explore Something!</div>
-                    <img src="https://cdn.dribbble.com/users/250027/screenshots/4065967/gifmaker.org_gll2rd.gif" />
-                </div>
-            </div>
-        );
-    }
+interface SplashProps {
+    pageType: PageTypes;
+}
+
+export const Splash: React.SFC<SplashProps> = (props) => {
+    let classes = "Splash ";
+    classes = classes.concat(props.pageType === PageTypes.LOGIN ? 'Splash--login' : 'Splash--register');
+    return <div className={classes}>
+        <div className="Splash--inner">
+        </div>
+    </div>;
 }

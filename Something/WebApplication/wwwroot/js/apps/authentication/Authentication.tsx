@@ -17,8 +17,12 @@ export default class Login extends React.Component<{}, {}> {
         }
 
         return <div className="authentication ant-row">
-            <AuthenticationForm {...params} />
-            <Splash />
+            <div className="ant-col-md-12 authentication--pane">
+                <AuthenticationForm {...params} />
+            </div>
+            <div className="ant-col-md-12 authentication--pane">
+                <Splash pageType={params.pageTypeId} />
+            </div>
         </div>;
     }
 }

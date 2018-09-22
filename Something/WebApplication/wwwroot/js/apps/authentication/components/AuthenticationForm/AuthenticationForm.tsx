@@ -2,11 +2,11 @@ import * as React from "react";
 import { Alert, Button, Form, Input } from "antd";
 import { FormComponentProps } from "antd/lib/form";
 import { IAuthenticationProps } from "../../types/IAuthenticationProps";
-import { IAuthenticationDomRepository } from "../../services/IAuthenticationDomRepository";
-import "./AuthenticationForm.scss";
 import { PageTypes } from "../../../common/PageTypeEnum";
 import { LoginDomRepository } from "../../services/LoginDomRepository";
 import { RegisterDomRepository } from "../../services/RegisterDomRepository";
+
+import "./AuthenticationForm.scss";
 
 const FormItem = Form.Item;
 
@@ -21,19 +21,21 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
             return null;
         }
 
-        const domRepository = this.props.pageType === PageTypes.LOGIN ? new LoginDomRepository() : new RegisterDomRepository();
+        const container = 'AuthForm';
+
+        const domRepository = this.props.pageTypeId === PageTypes.LOGIN ? new LoginDomRepository() : new RegisterDomRepository();
 
         const { getFieldDecorator } = this.props.form;
         return (
-            <div className="pane ant-col-md-12">
+            <div>
                 <Form
                     action={domRepository.getFormSubmitLink()}
                     method="post"
                     onSubmit={this.handleSubmit}
-                    className="AuthForm"
+                    className={container}
                 >
-                    <h2>{domRepository.getHeaderText()}</h2>
-                    <p className="subtitle">{domRepository.getSubtitleText()}</p>
+                    <p className={`${container}__title`}>{domRepository.getHeaderText()}</p>
+                    <p className={`${container}__subtitle`}>{domRepository.getSubtitleText()}</p>
                     <b>Email address</b>
                     <FormItem>
                         {getFieldDecorator("email", {
@@ -73,7 +75,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                         <Button
                             type="primary"
                             htmlType="submit"
-                            className="login-form-button ovrd-btn"
+                            className="login-form-button ant-btn--rounded"
                         >
                             {domRepository.getButtonText()}
                          </Button>
@@ -82,7 +84,11 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                         this.props.serverError,
                         this.props.failedAttempt,
                     )}
-                    <p className="alternatelink"><a href={domRepository.getAlternateLink()}>{domRepository.getAlternateText()}</a></p>
+                    <p className={`${container}__secondary-link`}>
+                        <a href={domRepository.getAlternateLink()}>
+                            {domRepository.getAlternateText()}
+                        </a>
+                    </p>
                 </Form>
             </div>
         );

@@ -1,5 +1,4 @@
 ﻿@using Common.Models;
-@using Service.ViewModels.Enums;
 @model Service.ViewModels.AccountViewModels.LoginViewModel
 @inject SignInManager<ApplicationUser> SignInManager
 
@@ -11,12 +10,7 @@
 <div id="login-root" />
 
 <script type="text/javascript">
-    window.authenticationPageParams = {
-        pageType: @((int)PageTypeEnum.Login),
-        email: "@Model.Email",
-        failedAttempt: "@Model.FailedAttempt",
-        serverError: "@Model.ServerError",
-    }
+    window.authenticationPageParams = @Html.Raw(Model.Serialize<LoginViewModel>(Model));
 </script>
 
 <script src="~/dist/login.bundle.js"></script>

@@ -1,14 +1,15 @@
 .AuthForm{
     width: 400px;
     margin: 0 auto;
-    h2 {
+    padding-top: 25%;
+    &__title {
         font-size: 32px;
-        margin-bottom: 0;
+        margin-bottom: 0px;
     }
-    .alternatelink {
+    &__subtitle {
+        font-size: 14px;
+    }
+    &__secondary-link {
         margin-top: 10px;
-    }
-    .subtitle {
-        font-size: 16px;
     }
 }

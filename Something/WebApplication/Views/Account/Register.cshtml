@@ -1,5 +1,4 @@
 ﻿@model Service.ViewModels.AccountViewModels.RegisterViewModel
-@using Service.ViewModels.Enums;
 @{
     ViewData["Title"] = "Register";
     Layout = null;
@@ -9,12 +8,7 @@
 <div id="login-root" />
 
 <script type="text/javascript">
-    window.authenticationPageParams = {
-        pageType: @((int)PageTypeEnum.Register),
-        email: "@Model.Email",
-        failedAttempt: "@Model.FailedAttempt",
-        serverError: "@Model.ServerError",
-    }
+    window.authenticationPageParams = @Html.Raw(Model.Serialize<RegisterViewModel>(Model));
 </script>
 
 <script src="~/dist/login.bundle.js"></script>

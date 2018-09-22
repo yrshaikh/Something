@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Service.ViewModels.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Service.ViewModels.AccountViewModels
 {
@@ -19,5 +20,7 @@ namespace Service.ViewModels.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public override int PageTypeId { get; set; } = (int)PageTypeEnum.Register;
     }
 }
