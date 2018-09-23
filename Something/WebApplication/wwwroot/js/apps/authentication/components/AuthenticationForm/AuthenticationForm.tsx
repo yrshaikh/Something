@@ -84,7 +84,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                         this.props.serverError,
                         this.props.failedAttempt,
                     )}
-                    <p className={`${container}__secondary-link`}>
+                    <p className={`${container}__secondaryLink`}>
                         <a href={domRepository.getAlternateLink()}>
                             {domRepository.getAlternateText()}
                         </a>
@@ -104,6 +104,8 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
     }
 
     private showErrorMessage = (serverError: boolean, failedAttempt: boolean): JSX.Element => {
+        if(!serverError && !failedAttempt) return null;
+
         let messageHeader: string;
         let messageBody: string;
         if (serverError) {

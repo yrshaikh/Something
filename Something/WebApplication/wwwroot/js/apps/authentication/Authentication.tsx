@@ -8,14 +8,14 @@ import "./Authentication.scss";
 import { IAuthenticationProps } from "./types/IAuthenticationProps";
 
 export const Authentication: React.SFC = () => {
-    const params: IAuthenticationProps = (window as any).authenticationPageParams as IAuthenticationProps;
+    const params: IAuthenticationProps = (window as any).authParams as IAuthenticationProps;
     if (!params) return null;
 
     return <div className="authentication ant-row">
-        <div className="ant-col-md-12 authentication--pane">
+        <div className="ant-col-md-12 authentication__pane">
             <AuthenticationForm {...params} />
         </div>
-        <div className="ant-col-md-12 authentication--pane">
+        <div className="ant-col-md-12 authentication__pane">
             <Splash pageType={params.pageTypeId} />
         </div>
     </div>;

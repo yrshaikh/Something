@@ -4,15 +4,15 @@
     background-image: url(/images/splash1.jpeg);
     background-position: center;
     height: 100%;
-    &--login {
+    &__login {
         background-position-x: 25%;
         background-position-y: 60%;
     }
-    &--register {
+    &__register {
         background-position-x: 90%;
         background-position-y: 60%;
     }
-    &--inner {
+    &__inner {
         width: 400px;
         margin: 0 auto;
     }

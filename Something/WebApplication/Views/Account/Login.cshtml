@@ -1,4 +1,5 @@
 ﻿@using Common.Models;
+@using WebApplication.Utils;
 @model Service.ViewModels.AccountViewModels.LoginViewModel
 @inject SignInManager<ApplicationUser> SignInManager
 
@@ -10,7 +11,7 @@
 <div id="login-root" />
 
 <script type="text/javascript">
-    window.authenticationPageParams = @Html.Raw(Model.Serialize<LoginViewModel>(Model));
+    window.authParams = @Html.Raw(JsonSerializer.Serialize<LoginViewModel>(Model));
 </script>
 
 <script src="~/dist/login.bundle.js"></script>
