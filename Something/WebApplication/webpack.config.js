@@ -2,10 +2,18 @@
 const tsImportPluginFactory = require('ts-import-plugin')
 module.exports = {
     mode: 'development',
-    entry: './wwwroot/js/index.tsx',
+    entry: {
+        login: './wwwroot/js/apps/authentication/AuthenticationEntry.tsx'
+    },
     output: {
         path: path.resolve(__dirname, 'wwwroot/dist'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
+    },
+
+    //watch
+    watch: true,
+    watchOptions: {
+        ignored: /node_modules/
     },
 
     // Enable sourcemaps for debugging webpack's output.

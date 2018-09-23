@@ -1,0 +1,15 @@
+.AuthForm{
+    width: 400px;
+    margin: 0 auto;
+    padding-top: 25%;
+    &__title {
+        font-size: 32px;
+        margin-bottom: 0;
+    }
+    &__subtitle {
+        font-size: 14px;
+    }
+    &__secondaryLink {
+        margin-top: 10px;
+    }
+}

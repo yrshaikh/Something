@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Service.ViewModels.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Service.ViewModels.AccountViewModels
 {
-    public class LoginViewModel
+    public class LoginViewModel : AuthViewModel
     {
         [Required]
         [EmailAddress]
@@ -12,7 +13,8 @@ namespace Service.ViewModels.AccountViewModels
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        public override int PageTypeId { get; set; } = (int)PageTypeEnum.Login;
     }
 }
