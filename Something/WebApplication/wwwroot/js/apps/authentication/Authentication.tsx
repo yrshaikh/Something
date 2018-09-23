@@ -3,7 +3,6 @@ import * as React from "react";
 import { AuthenticationForm } from "./components/AuthenticationForm/AuthenticationForm";
 import { Splash } from "./components/Splash/Splash";
 
-import "./../Global.scss";
 import "./Authentication.scss";
 import { IAuthenticationProps } from "./types/IAuthenticationProps";
 
