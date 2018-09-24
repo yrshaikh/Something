@@ -14,13 +14,14 @@ export const Onboarding: React.SFC = () => {
     if (!params) { return null; }
 
     return <div className="onboarding ant-row">
-        <Layout style={{ height: "100vh" }}>
+        <Layout className="ant-layout--fullheight">
             <NavigationMenu />
             <Layout>
-            <Content>
-                <Wizard />
-            </Content>
-            <PageFooter />
+                <Content>
+                    <div className="onboarding__title">Welcome on board, let's get you started.</div>
+                    <Wizard />
+                </Content>
+                <PageFooter />
             </Layout>
         </Layout>
     </div>;

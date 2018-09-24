@@ -1,17 +1,19 @@
 import * as React from "react";
 import { Steps, Button, message } from 'antd';
 
+import './Wizard.scss';
+
 const Step = Steps.Step;
 
 const steps = [{
-    title: 'Create a Company',
-    content: 'First-content',
+    title: 'Step 1',
+    description: 'Set up the Company',
 }, {
-    title: 'Create a Project',
-    content: 'Second-content',
+    title: 'Step 2',
+    description: 'Create New Project',
 }, {
-    title: 'Create a Sprint',
-    content: 'Last-content',
+    title: 'Step 3',
+    description: 'Manage Sprints',
 }];
 
 export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
@@ -37,10 +39,11 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
         return (
             <div>
                 <Steps current={currentIndex}>
-                    {steps.map(item => <Step key={item.title} title={item.title} />)}
+                    {steps.map(item => <Step key={item.title} title={item.title} description={item.description} />)}
                 </Steps>
-                <div className="steps-content">{steps[currentIndex].content}</div>
-                <div className="steps-action">
+                <div className="ant-steps__content">
+                </div>
+                <div className="ant-steps__action">
                     {
                         currentIndex < steps.length - 1
                         && <Button type="primary" onClick={() => this.next()}>Next</Button>

@@ -1,5 +1,10 @@
 @import "../Global.scss";
 
 .onboarding {
-
+    color: $base-font-color;
+    &__title {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 }

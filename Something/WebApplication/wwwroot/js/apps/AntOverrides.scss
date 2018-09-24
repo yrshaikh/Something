@@ -20,3 +20,9 @@
     padding: 24px;
     background: #fff;
 }
+
+.ant-layout {
+    &--fullheight {
+        height: 100vh;
+    }
+}
