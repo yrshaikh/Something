@@ -1,13 +1,12 @@
 import * as React from "react";
 import { IOnboardingProps } from "./types/IOnboardingProps";
 import { NavigationMenu } from "../common/components/NavigationMenu/NavigationMenu";
-import { Wizard } from './components/Wizard';
-import { Layout } from 'antd';
+import { Wizard } from "./components/Wizard";
+import { Layout } from "antd";
 import { PageFooter } from "../common/components/PageFooter/PageFooter";
 
 const { Content } = Layout;
 import "./Onboarding.scss";
-
 
 export const Onboarding: React.SFC = () => {
     const params: IOnboardingProps = (window as any).onboardingParams as IOnboardingProps;

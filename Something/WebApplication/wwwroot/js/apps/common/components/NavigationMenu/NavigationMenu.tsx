@@ -1,26 +1,26 @@
 import * as React from "react";
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon } from "antd";
 
 import "./NavigationMenu.scss";
 
 const { Sider } = Layout;
 
 export class NavigationMenu extends React.Component {
-    state = {
+    public state = {
         collapsed: false,
     };
 
-    toggle = () => {
+    public toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
         });
     }
 
-    render() {
+    public render() {
         return (
             <Sider className="NavigationMenu">
                 <div className="NavigationMenu__logo" />
-                <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+                <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]}>
                     <Menu.Item key="1">
                         <Icon type="user" />
                         <span className="nav-text">nav 1</span>
