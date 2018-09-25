@@ -1,22 +1,22 @@
 import * as React from "react";
 import { Steps, Button, message } from "antd";
 
-import './Wizard.scss';
+import "./Wizard.scss";
 
 const Step = Steps.Step;
 
 const steps = [
     {
-        title: 'Step 1',
-        description: 'Set up the Company',
+        title: "Step 1",
+        description: "Set up the Company",
     },
     {
-        title: 'Step 2',
-        description: 'Create New Project',
-    }, 
+        title: "Step 2",
+        description: "Create New Project",
+    },
     {
-        title: 'Step 3',
-        description: 'Manage Sprints',
+        title: "Step 3",
+        description: "Manage Sprints",
     },
 ];
 
@@ -43,7 +43,7 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
         return (
             <div>
                 <Steps current={currentIndex}>
-                    {steps.map(item => <Step key={item.title} title={item.title} description={item.description} />)}
+                    {steps.map((item) => <Step key={item.title} title={item.title} description={item.description} />)}
                 </Steps>
                 <div className="ant-steps__content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
