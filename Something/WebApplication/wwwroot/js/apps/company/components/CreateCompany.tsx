@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Alert, Button, Form, Input } from "antd";
+import { CompanyService } from "../../services/CompanyService";
 
 const classNames = require('classnames');
 const FormItem = Form.Item;
@@ -14,6 +15,7 @@ export class  CreateCompany extends React.Component<CreateCompany.Props, CreateC
             organizationName: ''
         };
         this.onChangeCompanyName = this.onChangeCompanyName.bind(this);
+        this.createCompany = this.createCompany.bind(this);
     }
 
     public render(): JSX.Element {
@@ -39,6 +41,7 @@ export class  CreateCompany extends React.Component<CreateCompany.Props, CreateC
                         type="primary"
                         htmlType="submit"
                         className={this.getButtonCssClasses()}
+                        onClick={this.createCompany}
                     >
                     Create Organization
                     </Button>
@@ -61,5 +64,15 @@ export class  CreateCompany extends React.Component<CreateCompany.Props, CreateC
 
     private onChangeCompanyName(e: any) {
         this.setState({ organizationName: e.target.value });
+    }
+
+    private createCompany() {
+        CompanyService.post(this.state.organizationName)
+            .then(function(response){
+                alert("ok");
+            })
+            .catch(function(response){
+                alert("error");
+            });
     }
 }

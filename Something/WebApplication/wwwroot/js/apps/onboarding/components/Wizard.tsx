@@ -70,24 +70,6 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
                 <div className="ant-steps__content">
                     {this.getContent(currentIndex)}
                 </div>
-                <div className="ant-steps__action">
-                    {
-                        currentIndex < steps.length - 1
-                        && <Button className="ant-btn--rounded" type="primary" onClick={() => this.next()}>Next</Button>
-                    }
-                    {
-                        currentIndex === steps.length - 1
-                        && <Button className="ant-btn--rounded" type="primary" onClick={() => message.success("Processing complete!")}>Done</Button>
-                    }
-                    {
-                        currentIndex > 0
-                        && (
-                            <Button className="ant-btn--rounded" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
-                                Previous
-                            </Button>
-                        )
-                    }
-                </div>
             </div>
         );
     }
