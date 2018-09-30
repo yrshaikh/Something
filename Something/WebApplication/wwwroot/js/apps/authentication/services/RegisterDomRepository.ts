@@ -12,4 +12,4 @@ export const RegisterDomRepository: IAuthenticationDomRepository = {
     getAlternateLink() { return "/account/login"; },
 
     getFormSubmitLink() { return "/account/register"; },
-}
+};

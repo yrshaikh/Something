@@ -5,11 +5,11 @@ export const LoginDomRepository: IAuthenticationDomRepository = {
 
     getSubtitleText() { return "sign in to your account"; },
 
-    getButtonText() { return "Sign in and continue" },
+    getButtonText() { return "Sign in and continue"; },
 
-    getAlternateText() { return "Don't have an account? Register" },
+    getAlternateText() { return "Don't have an account? Register"; },
 
-    getAlternateLink() { return "/account/register" },
+    getAlternateLink() { return "/account/register"; },
 
-    getFormSubmitLink() { return "/account/login" },
-}
+    getFormSubmitLink() { return "/account/login"; },
+};
