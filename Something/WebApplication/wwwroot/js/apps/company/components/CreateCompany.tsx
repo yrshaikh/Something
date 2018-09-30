@@ -2,17 +2,17 @@ import * as React from "react";
 import { Alert, Button, Form, Input } from "antd";
 import { CompanyService } from "../../services/CompanyService";
 
-const classNames = require('classnames');
+const classNames = require("classnames");
 const FormItem = Form.Item;
 
-import './CreateCompany.scss';
+import "./CreateCompany.scss";
 
 export class  CreateCompany extends React.Component<CreateCompany.Props, CreateCompany.State> {
 
     constructor(props: CreateCompany.Props) {
         super(props);
         this.state = {
-            organizationName: ''
+            organizationName: "",
         };
         this.onChangeCompanyName = this.onChangeCompanyName.bind(this);
         this.createCompany = this.createCompany.bind(this);
@@ -21,7 +21,7 @@ export class  CreateCompany extends React.Component<CreateCompany.Props, CreateC
     public render(): JSX.Element {
         const container = "CreateCompany";
 
-        if (!this.state) return null;
+        if (!this.state) { return null; }
 
         return (
             <Form
@@ -53,12 +53,12 @@ export class  CreateCompany extends React.Component<CreateCompany.Props, CreateC
                     showIcon
                 />
             </Form>
-        )
+        );
     }
 
-    private getButtonCssClasses() : string {
+    private getButtonCssClasses(): string {
         return classNames("login-form-button", "ant-btn--rounded",
-            { "ant-btn--disabled": !(this.state.organizationName && this.state.organizationName.length >= 3) }
+            { "ant-btn--disabled": !(this.state.organizationName && this.state.organizationName.length >= 3) },
         );
     }
 
@@ -68,10 +68,10 @@ export class  CreateCompany extends React.Component<CreateCompany.Props, CreateC
 
     private createCompany() {
         CompanyService.post(this.state.organizationName)
-            .then(function(response){
+            .then(function(response) {
                 alert("ok");
             })
-            .catch(function(response){
+            .catch(function(response) {
                 alert("error");
             });
     }
