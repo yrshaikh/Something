@@ -17,8 +17,8 @@ export const Onboarding: React.SFC = () => {
             <NavigationMenu />
             <Layout>
                 <Content>
-                    <div className="onboarding__title">Welcome on board, let's get you started.</div>
-                    <Wizard />
+                    <div className="onboarding__title">Welcome on board, let's get you started!</div>
+                    <Wizard stepNumber={0} />
                 </Content>
                 <PageFooter />
             </Layout>

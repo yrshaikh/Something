@@ -8,6 +8,10 @@
         height: 40px;
         text-align: center;
     }
+    &--disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
 }
 
 .ant-input {
