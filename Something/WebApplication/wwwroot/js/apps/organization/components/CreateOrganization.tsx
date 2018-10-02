@@ -19,40 +19,43 @@ export class  CreateOrganization extends React.Component<CreateOrganization.Prop
     }
 
     public render(): JSX.Element {
-        const container = "CreateOrganization";
 
         if (!this.state) return null;
 
         return (
-            <Form
-                className={container}
-            >
-                <b>Orgnaization name</b>
-                <FormItem>
-                    <Input
-                        className="ant-input-lg CreateOrganization__input"
-                        placeholder="ACME INC"
-                        name="Email"
-                        onChange={this.onChangeOrgnaizationName}
-                    />
-                </FormItem>
-                <FormItem>
-                    <Button
-                        type="primary"
-                        htmlType="submit"
-                        className={this.getButtonCssClasses()}
-                        onClick={this.CreateOrganization}
-                    >
-                    Create Organization
-                    </Button>
-                </FormItem>
+            <div className="ant-row">
+                <Form
+                    className="ant-col-md-16 CreateOrganization"
+                >
+                    <b>Orgnaization name</b>
+                    <FormItem>
+                        <Input
+                            className="ant-input-lg CreateOrganization__input"
+                            placeholder="ACME INC"
+                            name="Email"
+                            onChange={this.onChangeOrgnaizationName}
+                            autoFocus
+                        />
+                    </FormItem>
+                    <FormItem>
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            className={this.getButtonCssClasses()}
+                            onClick={this.CreateOrganization}
+                        >
+                        Create Organization
+                        </Button>
+                    </FormItem>
+                </Form>
                 <Alert
+                    className="ant-col-md-8"
                     message="Get most out of your organization"
                     description="Organization helps you to group users and projects. You can create mulitple organization, one user can be linked with mulitple organizations"
                     type="info"
-                    showIcon
                 />
-            </Form>
+                <hr className="ant-col-md-24 CreateOrganization__hr"/>
+            </div>
         )
     }
 

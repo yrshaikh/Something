@@ -1,6 +1,10 @@
-.CreateCompany {
-    margin-top: 30px;
+.CreateOrganization {
     &__input {
         width: 300px;
+    }
+    &__hr {
+        border: 0;
+        border-bottom: 0.5px solid #e1dbdb;
+        padding-top: 20px;
     }
 }
