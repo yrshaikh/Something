@@ -1,4 +1,4 @@
-declare module CreateCompany {
+declare module CreateOrganization {
     interface Props {
     }
     

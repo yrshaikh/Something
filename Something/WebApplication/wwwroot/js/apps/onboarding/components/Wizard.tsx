@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Steps, Button, message } from "antd";
 
-import { CreateCompany } from '../../company/components/CreateCompany';
+import { CreateOrganization } from '../../organization/components/CreateOrganization';
 import { CreateProject } from '../../project/components/CreateProject';
 import { CreateSprint } from '../../sprint/components/CreateSprint';
 
@@ -48,8 +48,8 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
         switch (index) {
             case 0:
             {
-                const props = {} as CreateCompany.Props & FormComponentProps; 
-                return <CreateCompany {...props} />;
+                const props = {} as CreateOrganization.Props & FormComponentProps; 
+                return <CreateOrganization {...props} />;
             }
             case 1:
                 return <CreateProject />;

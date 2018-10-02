@@ -1,25 +1,25 @@
 import * as React from "react";
 import { Alert, Button, Form, Input } from "antd";
-import { CompanyService } from "../../services/CompanyService";
+import { OrganizationService } from "../../services/OrganizationService";
 
 const classNames = require('classnames');
 const FormItem = Form.Item;
 
-import './CreateCompany.scss';
+import './CreateOrganization.scss';
 
-export class  CreateCompany extends React.Component<CreateCompany.Props, CreateCompany.State> {
+export class  CreateOrganization extends React.Component<CreateOrganization.Props, CreateOrganization.State> {
 
-    constructor(props: CreateCompany.Props) {
+    constructor(props: CreateOrganization.Props) {
         super(props);
         this.state = {
             organizationName: ''
         };
-        this.onChangeCompanyName = this.onChangeCompanyName.bind(this);
-        this.createCompany = this.createCompany.bind(this);
+        this.onChangeOrgnaizationName = this.onChangeOrgnaizationName.bind(this);
+        this.CreateOrganization = this.CreateOrganization.bind(this);
     }
 
     public render(): JSX.Element {
-        const container = "CreateCompany";
+        const container = "CreateOrganization";
 
         if (!this.state) return null;
 
@@ -30,10 +30,10 @@ export class  CreateCompany extends React.Component<CreateCompany.Props, CreateC
                 <b>Orgnaization name</b>
                 <FormItem>
                     <Input
-                        className="ant-input-lg CreateCompany__input"
+                        className="ant-input-lg CreateOrganization__input"
                         placeholder="ACME INC"
                         name="Email"
-                        onChange={this.onChangeCompanyName}
+                        onChange={this.onChangeOrgnaizationName}
                     />
                 </FormItem>
                 <FormItem>
@@ -41,7 +41,7 @@ export class  CreateCompany extends React.Component<CreateCompany.Props, CreateC
                         type="primary"
                         htmlType="submit"
                         className={this.getButtonCssClasses()}
-                        onClick={this.createCompany}
+                        onClick={this.CreateOrganization}
                     >
                     Create Organization
                     </Button>
@@ -62,12 +62,12 @@ export class  CreateCompany extends React.Component<CreateCompany.Props, CreateC
         );
     }
 
-    private onChangeCompanyName(e: any) {
+    private onChangeOrgnaizationName(e: any) {
         this.setState({ organizationName: e.target.value });
     }
 
-    private createCompany() {
-        CompanyService.post(this.state.organizationName)
+    private CreateOrganization() {
+        OrganizationService.post(this.state.organizationName)
             .then(function(response){
                 alert("ok");
             })
