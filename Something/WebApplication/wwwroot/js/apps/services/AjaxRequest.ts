@@ -1,12 +1,11 @@
 export const AjaxRequest = {
     post(url: string, data: any): Promise<any> {
         return fetch(url, {
-            method: 'POST',
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
         });
-    }
-}
-
+    },
+};
