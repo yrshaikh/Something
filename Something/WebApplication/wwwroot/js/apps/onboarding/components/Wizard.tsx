@@ -5,7 +5,7 @@ import { CreateOrganization } from '../../organization/components/CreateOrganiza
 import { CreateProject } from '../../project/components/CreateProject';
 import { CreateSprint } from '../../sprint/components/CreateSprint';
 
-import './Wizard.scss';
+import "./Wizard.scss";
 import { FormComponentProps } from "antd/lib/form";
 
 const Step = Steps.Step;
@@ -21,7 +21,7 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
         };
     }
 
-    private next() : void {
+    private next(): void {
         const current = this.state.currentIndex + 1;
         this.setState({ currentIndex: current });
     }
@@ -44,7 +44,7 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
         }
     }
 
-    private getContent(index: number) : JSX.Element {
+    private getContent(index: number): JSX.Element {
         switch (index) {
             case 0:
             {
@@ -65,7 +65,7 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
         return (
             <div>
                 <Steps current={currentIndex}>
-                    {steps.map(item => <Step key={item} title={this.getTitle(item)} />)}
+                    {steps.map((item) => <Step key={item} title={this.getTitle(item)} />)}
                 </Steps>
                 <div className="ant-steps__content">
                     {this.getContent(currentIndex)}
