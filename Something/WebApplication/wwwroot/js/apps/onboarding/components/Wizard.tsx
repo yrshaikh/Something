@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Steps, Button, message } from "antd";
 
-import { CreateOrganization } from '../../organization/components/CreateOrganization';
-import { CreateProject } from '../../project/components/CreateProject';
-import { CreateSprint } from '../../sprint/components/CreateSprint';
+import { CreateOrganization } from "../../organization/components/CreateOrganization";
+import { CreateProject } from "../../project/components/CreateProject";
+import { CreateSprint } from "../../sprint/components/CreateSprint";
 
 import "./Wizard.scss";
 import { FormComponentProps } from "antd/lib/form";
@@ -48,7 +48,7 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
         switch (index) {
             case 0:
             {
-                const props = {} as CreateOrganization.Props & FormComponentProps; 
+                const props = {} as CreateOrganization.Props & FormComponentProps;
                 return <CreateOrganization {...props} />;
             }
             case 1:

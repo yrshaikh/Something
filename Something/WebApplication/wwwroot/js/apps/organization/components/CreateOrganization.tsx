@@ -2,17 +2,17 @@ import * as React from "react";
 import { Alert, Button, Form, Input } from "antd";
 import { OrganizationService } from "../../services/OrganizationService";
 
-const classNames = require('classnames');
+const classNames = require("classnames");
 const FormItem = Form.Item;
 
-import './CreateOrganization.scss';
+import "./CreateOrganization.scss";
 
 export class  CreateOrganization extends React.Component<CreateOrganization.Props, CreateOrganization.State> {
 
     constructor(props: CreateOrganization.Props) {
         super(props);
         this.state = {
-            organizationName: '',
+            organizationName: "",
             hasError: false,
         };
         this.onChangeOrgnaizationName = this.onChangeOrgnaizationName.bind(this);
@@ -21,7 +21,7 @@ export class  CreateOrganization extends React.Component<CreateOrganization.Prop
 
     public render(): JSX.Element {
 
-        if (!this.state) return null;
+        if (!this.state) { return null; }
 
         return (
             <div className="ant-row">
@@ -58,7 +58,7 @@ export class  CreateOrganization extends React.Component<CreateOrganization.Prop
 
                 <hr className="ant-col-md-24 CreateOrganization__hr"/>
 
-                {this.state.hasError ? 
+                {this.state.hasError ?
                 <Alert
                     className="ant-col-md-24"
                     message="Oops! Something went wrong."
@@ -66,12 +66,12 @@ export class  CreateOrganization extends React.Component<CreateOrganization.Prop
                     type="error"
                 /> : null}
             </div>
-        )
+        );
     }
 
-    private getButtonCssClasses() : string {
+    private getButtonCssClasses(): string {
         return classNames("login-form-button", "ant-btn--rounded",
-            { "ant-btn--disabled": !(this.state.organizationName && this.state.organizationName.length >= 3) }
+            { "ant-btn--disabled": !(this.state.organizationName && this.state.organizationName.length >= 3) },
         );
     }
 
@@ -80,12 +80,12 @@ export class  CreateOrganization extends React.Component<CreateOrganization.Prop
     }
 
     private CreateOrganization() {
-        var that = this;
+        let that = this;
         OrganizationService.post(this.state.organizationName)
-            .then(function(response){
+            .then(function(response) {
                 alert("ok");
             })
-            .catch(function(response){
+            .catch(function(response) {
                 that.setState({hasError: true});
             });
     }

@@ -1,7 +1,7 @@
-import { AjaxRequest } from './AjaxRequest';
+import { AjaxRequest } from "./AjaxRequest";
 
 export const OrganizationService = {
     post(name: string): Promise<any> {
-        return AjaxRequest.post('/api/companies', { name });
-    }
-}
+        return AjaxRequest.post("/api/companies", { name });
+    },
+};
