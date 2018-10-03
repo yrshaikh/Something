@@ -104,7 +104,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
     }
 
     private showErrorMessage = (serverError: boolean, failedAttempt: boolean): JSX.Element => {
-        if (!serverError && !failedAttempt) { return null; }
+        if(!serverError && !failedAttempt) return null;
 
         let messageHeader: string;
         let messageBody: string;
