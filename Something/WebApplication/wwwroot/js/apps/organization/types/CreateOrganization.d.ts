@@ -3,6 +3,7 @@ declare module CreateOrganization {
     }
     
     interface State {
-        organizationName: string
+        organizationName: string;
+        hasError: boolean;
     }
 }

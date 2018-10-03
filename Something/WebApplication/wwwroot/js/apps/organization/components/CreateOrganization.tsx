@@ -12,7 +12,8 @@ export class  CreateOrganization extends React.Component<CreateOrganization.Prop
     constructor(props: CreateOrganization.Props) {
         super(props);
         this.state = {
-            organizationName: ''
+            organizationName: '',
+            hasError: false,
         };
         this.onChangeOrgnaizationName = this.onChangeOrgnaizationName.bind(this);
         this.CreateOrganization = this.CreateOrganization.bind(this);
@@ -54,7 +55,16 @@ export class  CreateOrganization extends React.Component<CreateOrganization.Prop
                     description="Organization helps you to group users and projects. You can create mulitple organization, one user can be linked with mulitple organizations"
                     type="info"
                 />
+
                 <hr className="ant-col-md-24 CreateOrganization__hr"/>
+
+                {this.state.hasError ? 
+                <Alert
+                    className="ant-col-md-24"
+                    message="Oops! Something went wrong."
+                    description="There was an error creating your orgranization. Please try again in sometime."
+                    type="error"
+                /> : null}
             </div>
         )
     }
@@ -70,12 +80,13 @@ export class  CreateOrganization extends React.Component<CreateOrganization.Prop
     }
 
     private CreateOrganization() {
+        var that = this;
         OrganizationService.post(this.state.organizationName)
             .then(function(response){
                 alert("ok");
             })
             .catch(function(response){
-                alert("error");
+                that.setState({hasError: true});
             });
     }
 }
