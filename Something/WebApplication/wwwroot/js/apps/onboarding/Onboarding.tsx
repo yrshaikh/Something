@@ -4,13 +4,16 @@ import { NavigationMenu } from "../common/components/NavigationMenu/NavigationMe
 import { Wizard } from "./components/Wizard";
 import { Layout } from "antd";
 import { PageFooter } from "../common/components/PageFooter/PageFooter";
+import { getParams } from "../common/WindowService";
+import { PageTypes } from "../common/PageTypeEnum";
 
-const { Content } = Layout;
 import "./Onboarding.scss";
 
+const { Content } = Layout;
+
 export const Onboarding: React.SFC = () => {
-    const params: IOnboardingProps = (window as any).onboardingParams as IOnboardingProps;
-    if (!params) { return null; }
+    const params = getParams(PageTypes.ONBOARDING) as IOnboardingProps;
+    if (!params) return null;
 
     return <div className="onboarding ant-row">
         <Layout className="ant-layout--fullheight">

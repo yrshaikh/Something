@@ -2,12 +2,14 @@ import * as React from "react";
 
 import { AuthenticationForm } from "./components/AuthenticationForm/AuthenticationForm";
 import { Splash } from "./components/Splash/Splash";
+import { IAuthenticationProps } from "./types/IAuthenticationProps";
+import { getParams } from "../common/WindowService";
+import { PageTypes } from "../common/PageTypeEnum";
 
 import "./Authentication.scss";
-import { IAuthenticationProps } from "./types/IAuthenticationProps";
 
 export const Authentication: React.SFC = () => {
-    const params: IAuthenticationProps = (window as any).authParams as IAuthenticationProps;
+    const params = getParams(PageTypes.LOGIN) as IAuthenticationProps;
     if (!params) return null;
 
     return <div className="authentication ant-row">
