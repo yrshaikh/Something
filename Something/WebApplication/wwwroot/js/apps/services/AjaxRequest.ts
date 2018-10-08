@@ -1,7 +1,7 @@
 
 export const AjaxRequest = {
     post(url: string, data: any): Promise<any> {
-        return fetch(url, 
+        return fetch(url,
         {
             headers: {
                 "Content-Type": "application/json",

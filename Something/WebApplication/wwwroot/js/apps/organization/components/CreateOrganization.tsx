@@ -2,10 +2,10 @@ import * as React from "react";
 import { Alert, Button, Form, Input } from "antd";
 import { OrganizationService } from "../../services/OrganizationService";
 
-const classNames = require('classnames');
+const classNames = require("classnames");
 const FormItem = Form.Item;
 
-import './CreateOrganization.scss';
+import "./CreateOrganization.scss";
 
 export class CreateOrganization extends React.Component<CreateOrganization.Props, CreateOrganization.State> {
     static displayName = 'CreateOrganization';
@@ -77,9 +77,9 @@ export class CreateOrganization extends React.Component<CreateOrganization.Props
             /> : null;
     }
 
-    private getButtonCssClasses() : string {
+    private getButtonCssClasses(): string {
         return classNames("login-form-button", "ant-btn--rounded",
-            { "ant-btn--disabled": !(this.state.organizationName && this.state.organizationName.length >= 3) }
+            { "ant-btn--disabled": !(this.state.organizationName && this.state.organizationName.length >= 3) },
         );
     }
 

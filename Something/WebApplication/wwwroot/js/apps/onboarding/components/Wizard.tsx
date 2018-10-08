@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Steps } from "antd";
 
-import { CreateOrganization } from '../../organization/components/CreateOrganization';
-import { CreateProject } from '../../project/components/CreateProject';
-import { CreateSprint } from '../../sprint/components/CreateSprint';
+import { CreateOrganization } from "../../organization/components/CreateOrganization";
+import { CreateProject } from "../../project/components/CreateProject";
+import { CreateSprint } from "../../sprint/components/CreateSprint";
 
 import "./Wizard.scss";
 import { FormComponentProps } from "antd/lib/form";
