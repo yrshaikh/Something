@@ -6,21 +6,11 @@ import "./NavigationMenu.scss";
 const { Sider } = Layout;
 
 export class NavigationMenu extends React.Component {
-    public state = {
-        collapsed: false,
-    };
-
-    public toggle = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
-    }
-
     public render() {
         return (
             <Sider className="NavigationMenu">
                 <div className="NavigationMenu__logo" />
-                <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]}>
+                <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
                     <Menu.Item key="1">
                         <Icon type="exclamation-circle" />
                         <span className="nav-text">Issues</span>

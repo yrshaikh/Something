@@ -7,66 +7,74 @@ const FormItem = Form.Item;
 
 import './CreateOrganization.scss';
 
-export class  CreateOrganization extends React.Component<CreateOrganization.Props, CreateOrganization.State> {
-
+export class CreateOrganization extends React.Component<CreateOrganization.Props, CreateOrganization.State> {
+    static displayName = 'CreateOrganization';
     constructor(props: CreateOrganization.Props) {
         super(props);
         this.state = {
-            organizationName: '',
             hasError: false,
+            organizationName: '',
         };
         this.onChangeOrgnaizationName = this.onChangeOrgnaizationName.bind(this);
-        this.CreateOrganization = this.CreateOrganization.bind(this);
+        this.createOrganization = this.createOrganization.bind(this);
     }
 
     public render(): JSX.Element {
-
         if (!this.state) return null;
-
         return (
             <div className="ant-row">
-                <Form
-                    className="ant-col-md-16 CreateOrganization"
-                >
-                    <b>Orgnaization name</b>
-                    <FormItem>
-                        <Input
-                            className="ant-input-lg CreateOrganization__input"
-                            placeholder="ACME INC"
-                            name="Email"
-                            onChange={this.onChangeOrgnaizationName}
-                            autoFocus
-                        />
-                    </FormItem>
-                    <FormItem>
-                        <Button
-                            type="primary"
-                            htmlType="submit"
-                            className={this.getButtonCssClasses()}
-                            onClick={this.CreateOrganization}
-                        >
-                        Create Organization
-                        </Button>
-                    </FormItem>
-                </Form>
-                <Alert
-                    className="ant-col-md-8"
-                    message="Get most out of your organization"
-                    description="Organization helps you to group users and projects. You can create mulitple organization, one user can be linked with mulitple organizations"
-                    type="info"
-                />
-
+                {this.renderForm()}
+                {this.renderInfo()}
                 <hr className="ant-col-md-24 CreateOrganization__hr"/>
-
-                {this.state.hasError ? 
-                <Alert
-                    className="ant-col-md-24"
-                    message="Oops! Something went wrong."
-                    description="There was an error creating your orgranization. Please try again in sometime."
-                    type="error"
-                /> : null}
+                {this.renderError()}
             </div>
         )
+    }
+    
+    private renderForm(): JSX.Element {
+        return <Form
+            className="ant-col-md-16 CreateOrganization"
+        >
+            <b>Orgnaization name</b>
+            <FormItem>
+                <Input
+                    className="ant-input-lg CreateOrganization__input"
+                    placeholder="ACME INC"
+                    name="Email"
+                    onChange={this.onChangeOrgnaizationName}
+                    autoFocus
+                />
+            </FormItem>
+            <FormItem>
+                <Button
+                    type="primary"
+                    htmlType="submit"
+                    className={this.getButtonCssClasses()}
+                    onClick={this.createOrganization}
+                >
+                    Create Organization
+                        </Button>
+            </FormItem>
+        </Form>;
+    }
+
+    private renderInfo(): JSX.Element {
+        return <Alert
+            className="ant-col-md-8"
+            message="Get most out of your organization"
+            description="Organization helps you to group users and projects. You can create mulitple organization, one user can be linked with mulitple organizations"
+            type="info"
+        />;
+    }
+
+    private renderError(): JSX.Element {
+        return this.state.hasError ?
+            <Alert
+                className="ant-col-md-24"
+                message="Oops! Something went wrong."
+                description="There was an error creating your orgranization. Please try again in sometime."
+                type="error"
+            /> : null;
     }
 
     private getButtonCssClasses() : string {
@@ -79,14 +87,17 @@ export class  CreateOrganization extends React.Component<CreateOrganization.Prop
         this.setState({ organizationName: e.target.value });
     }
 
-    private CreateOrganization() {
-        var that = this;
+    private createOrganization() {
+        const that = this;
         OrganizationService.post(this.state.organizationName)
-            .then(function(response){
-                alert("ok");
-            })
-            .catch(function(response){
-                that.setState({hasError: true});
-            });
+            .then(response => response.text())
+            .then(organizationId => that.onOrganizationCreated(organizationId))
+            .catch(response => that.setState({hasError: true}))
     }
+
+    private onOrganizationCreated(organizationId: number) {
+        if (this.props.isOnboarding)
+            this.props.onCreateCallback(CreateOrganization.displayName);
+    }
+
 }

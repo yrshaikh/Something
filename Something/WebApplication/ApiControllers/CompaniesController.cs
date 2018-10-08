@@ -31,14 +31,14 @@ namespace WebApplication.ApiControllers
         
         // POST: api/Companies
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]string value)
+        public async Task<IActionResult> Post([FromBody]CreateCompanyViewModel model)
         {
-            if (string.IsNullOrWhiteSpace(value) || value.Length < 3)
+            if (string.IsNullOrWhiteSpace(model.Name) || model.Name.Length < 3)
             {
-                return BadRequest(value);
+                return BadRequest(model.Name);
             }
 
-            var companyId = _companyService.CreateCompany(value, GetUserId());
+            var companyId = _companyService.CreateCompany(model.Name, GetUserId());
             return CreatedAtAction("Get", new { id = companyId }, companyId);
         }
 

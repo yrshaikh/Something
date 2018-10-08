@@ -5,10 +5,4 @@
     ],
     "jsRules": {},
     "rules": {},
-    "rulesDirectory": [],
-    "typedef": [
-        true,
-        "call-signature",
-        "property-declaration"
-    ]
 }

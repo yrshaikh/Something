@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Steps, Button, message } from "antd";
+import { Steps } from "antd";
 
 import { CreateOrganization } from '../../organization/components/CreateOrganization';
 import { CreateProject } from '../../project/components/CreateProject';
@@ -12,7 +12,8 @@ const Step = Steps.Step;
 
 const steps = [0, 1, 2];
 
-export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
+export class Wizard extends React.PureComponent<Wizard.Props, Wizard.State> {
+
     constructor(props: Wizard.Props) {
         super(props);
         const currentStep = steps.indexOf(props.stepNumber) !== -1 ? props.stepNumber : 0;
@@ -20,15 +21,19 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
             currentIndex: currentStep,
         };
     }
-
-    private next(): void {
-        const current = this.state.currentIndex + 1;
-        this.setState({ currentIndex: current });
-    }
-
-    private prev() {
-        const current = this.state.currentIndex - 1;
-        this.setState({ currentIndex: current });
+    
+    public render() {
+        const { currentIndex } = this.state;
+        return (
+            <div>
+                <Steps current={currentIndex}>
+                    {steps.map((item) => <Step key={item} title={this.getTitle(item)} />)}
+                </Steps>
+                <div className="ant-steps__content">
+                    {this.getContent(currentIndex)}
+                </div>
+            </div>
+        );
     }
 
     private getTitle(index: number): string {
@@ -48,8 +53,8 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
         switch (index) {
             case 0:
             {
-                const props = {} as CreateOrganization.Props & FormComponentProps; 
-                return <CreateOrganization {...props} />;
+                const props = { isOnboarding: true } as CreateOrganization.Props & FormComponentProps; 
+                return <CreateOrganization {...props} onCreateCallback={this.changeSteps} />;
             }
             case 1:
                 return <CreateProject />;
@@ -60,17 +65,15 @@ export class Wizard extends React.Component<Wizard.Props, Wizard.State> {
         }
     }
 
-    public render() {
-        const { currentIndex } = this.state;
-        return (
-            <div>
-                <Steps current={currentIndex}>
-                    {steps.map((item) => <Step key={item} title={this.getTitle(item)} />)}
-                </Steps>
-                <div className="ant-steps__content">
-                    {this.getContent(currentIndex)}
-                </div>
-            </div>
-        );
+    private changeSteps(childIdentifier: string) {
+        let nextStep: number;
+        switch (childIdentifier) {
+            case "CreateOrganization":
+                nextStep = 2;
+                break;
+            default:
+                break;
+        }
+        this.setState({ currentIndex: nextStep })
     }
 }

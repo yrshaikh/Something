@@ -1,4 +1,5 @@
 ﻿@using WebApplication.Utils;
+@using Service.ViewModels.Onboarding;
 @{
     ViewData["Title"] = "Index";
 }
@@ -6,10 +7,7 @@
 <div id="onboarding-root"></div>
 
 <script type="text/javascript">
-    window.onboardingParams = {
-        pageTypeId: 2,
-    };
-    // window.authParams = @Html.Raw(JsonSerializer.Serialize<LoginViewModel>(Model));
+    window.onboardingParams = @Html.Raw(JsonSerializer.Serialize<OnboardingViewModel>(Model));
 </script>
 
 <script src="~/dist/onboarding.bundle.js"></script>
