@@ -1,10 +1,10 @@
-import 'jest';
-import * as React from 'react';
-import { shallow } from 'enzyme';
-import enzymeToJson from 'enzyme-to-json';
+import "jest";
+import * as React from "react";
+import { shallow } from "enzyme";
+import enzymeToJson from "enzyme-to-json";
 
 import { Splash } from "./Splash";
-import { PageTypes } from '../../../common/PageTypeEnum';
+import { PageTypes } from "../../../common/PageTypeEnum";
 
 describe("<Splash />", () => {
     it("should render correctly", () => {
