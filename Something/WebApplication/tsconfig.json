@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
