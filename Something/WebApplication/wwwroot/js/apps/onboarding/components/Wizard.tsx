@@ -7,7 +7,7 @@ import { CreateSprint } from "../../sprint/components/CreateSprint";
 
 import "./Wizard.scss";
 
-import { Icon } from 'antd';
+import { Icon } from "antd";
 import { FormComponentProps } from "antd/lib/form";
 
 const Step = Steps.Step;
@@ -23,7 +23,7 @@ export class Wizard extends React.PureComponent<Wizard.Props, Wizard.State> {
         };
         this.changeSteps = this.changeSteps.bind(this);
     }
-    
+
     public render() {
         const { currentIndex } = this.state;
         return (
@@ -31,7 +31,7 @@ export class Wizard extends React.PureComponent<Wizard.Props, Wizard.State> {
                 <Steps current={currentIndex}>
                     {
                         steps.map((item) =>
-                        <Step 
+                        <Step
                             key={item}
                             title={this.getTitle(item)} />)
                     }
@@ -60,7 +60,7 @@ export class Wizard extends React.PureComponent<Wizard.Props, Wizard.State> {
         switch (index) {
             case 0:
             {
-                const props = { isOnboarding: true } as CreateOrganization.Props & FormComponentProps; 
+                const props = { isOnboarding: true } as CreateOrganization.Props & FormComponentProps;
                 return <CreateOrganization {...props} onCreateCallback={this.changeSteps} />;
             }
             case 1:
@@ -81,6 +81,6 @@ export class Wizard extends React.PureComponent<Wizard.Props, Wizard.State> {
             default:
                 break;
         }
-        this.setState({ currentIndex: nextStep })
+        this.setState({ currentIndex: nextStep });
     }
 }

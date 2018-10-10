@@ -8,28 +8,28 @@ const FormItem = Form.Item;
 import "./CreateOrganization.scss";
 
 export class CreateOrganization extends React.Component<CreateOrganization.Props, CreateOrganization.State> {
-    static displayName = 'CreateOrganization';
+    public static displayName = "CreateOrganization";
     constructor(props: CreateOrganization.Props) {
         super(props);
         this.state = {
             hasError: false,
-            organizationName: '',
+            organizationName: "",
         };
         this.onChangeOrgnaizationName = this.onChangeOrgnaizationName.bind(this);
         this.createOrganization = this.createOrganization.bind(this);
     }
 
     public render(): JSX.Element {
-        if (!this.state) return null;
+        if (!this.state) { return null; }
         return (
             <div className="ant-row">
                 {this.renderForm()}
                 <hr className="ant-col-md-24 CreateOrganization__hr"/>
                 {this.renderError()}
             </div>
-        )
+        );
     }
-    
+
     private renderForm(): JSX.Element {
         return <Form
             className="ant-col-md-24 CreateOrganization"
@@ -86,14 +86,15 @@ export class CreateOrganization extends React.Component<CreateOrganization.Props
     private createOrganization() {
         const that = this;
         OrganizationService.post(this.state.organizationName)
-            .then(response => response.text())
-            .then(organizationId => that.onOrganizationCreated(organizationId))
-            .catch(response => that.setState({hasError: true}))
+            .then((response) => response.text())
+            .then((organizationId) => that.onOrganizationCreated(organizationId))
+            .catch((response) => that.setState({hasError: true}));
     }
 
     private onOrganizationCreated(organizationId: number) {
-        if (this.props.isOnboarding)
+        if (this.props.isOnboarding) {
             this.props.onCreateCallback(CreateOrganization.displayName);
+        }
     }
 
 }
