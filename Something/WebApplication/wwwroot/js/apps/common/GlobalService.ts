@@ -22,4 +22,4 @@ export const getParams = (pageType: PageTypes): BaseParams => {
             break;
     }
     return params;
-} 
+};
