@@ -13,7 +13,7 @@ const { Content } = Layout;
 
 export const Onboarding: React.SFC = () => {
     const params = getParams(PageTypes.ONBOARDING) as IOnboardingProps;
-    if (!params) return null;
+    if (!params) { return null; }
 
     return <div className="onboarding ant-row">
         <Layout className="ant-layout--fullheight">
