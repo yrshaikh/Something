@@ -4,7 +4,7 @@ import { NavigationMenu } from "../common/components/NavigationMenu/NavigationMe
 import { Wizard } from "./components/Wizard";
 import { Layout } from "antd";
 import { PageFooter } from "../common/components/PageFooter/PageFooter";
-import { getParams } from "../common/WindowService";
+import { getParams } from "../common/GlobalService";
 import { PageTypes } from "../common/PageTypeEnum";
 
 import "./Onboarding.scss";

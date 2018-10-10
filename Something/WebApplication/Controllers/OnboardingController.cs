@@ -4,6 +4,7 @@ using Service.ViewModels.Onboarding;
 
 namespace WebApplication.Controllers
 {
+    [Authorize]
     public class OnboardingController : Controller
     {
         public IActionResult Index()

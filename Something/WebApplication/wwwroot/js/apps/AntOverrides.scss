@@ -1,3 +1,5 @@
+@import 'Variables.scss';
+
 .ant-btn {
     &--rounded{
         padding: 0 24px;
@@ -28,4 +30,20 @@
     &--fullheight {
         height: 100vh;
     }
+}
+
+.ant-alert-with-description {
+    font-size: 12px;
+    .ant-alert-message {
+        font-size: 12px;
+        font-weight: $font-weight-bold;
+    }
+    .ant-alert-description {
+        font-size: 12px;
+    }
+}
+
+.ant-steps {
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
 }

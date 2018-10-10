@@ -1,7 +1,5 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
-
-body {
+﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-family: 'Montserrat', 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }

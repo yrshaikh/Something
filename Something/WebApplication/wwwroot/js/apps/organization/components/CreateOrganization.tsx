@@ -24,7 +24,6 @@ export class CreateOrganization extends React.Component<CreateOrganization.Props
         return (
             <div className="ant-row">
                 {this.renderForm()}
-                {this.renderInfo()}
                 <hr className="ant-col-md-24 CreateOrganization__hr"/>
                 {this.renderError()}
             </div>
@@ -33,9 +32,15 @@ export class CreateOrganization extends React.Component<CreateOrganization.Props
     
     private renderForm(): JSX.Element {
         return <Form
-            className="ant-col-md-16 CreateOrganization"
+            className="ant-col-md-24 CreateOrganization"
         >
-            <b>Orgnaization name</b>
+            <p>
+                <b>
+                    Get most out of your organization
+                </b>
+            </p>
+            <p>Organization helps you to group users and projects. You can create mulitple organization, one user can be linked with mulitple organizations.</p>
+            <b>Organization name</b>
             <FormItem>
                 <Input
                     className="ant-input-lg CreateOrganization__input"
@@ -56,15 +61,6 @@ export class CreateOrganization extends React.Component<CreateOrganization.Props
                         </Button>
             </FormItem>
         </Form>;
-    }
-
-    private renderInfo(): JSX.Element {
-        return <Alert
-            className="ant-col-md-8"
-            message="Get most out of your organization"
-            description="Organization helps you to group users and projects. You can create mulitple organization, one user can be linked with mulitple organizations"
-            type="info"
-        />;
     }
 
     private renderError(): JSX.Element {
