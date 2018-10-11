@@ -96,7 +96,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
 
     private handleSubmit = (e: any) => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        this.props.form.validateFields((err: any, values: any) => {
             if (!err) {
                 e.currentTarget.submit();
             }

@@ -1,9 +1,7 @@
 import { PageTypes } from "../../common/PageTypeEnum";
 import { BaseParams } from "../../common/types/BaseParams";
 
-export interface IAuthenticationProps extends BaseParams {
+export interface IOnboardingProps extends BaseParams {
     pageTypeId: PageTypes;
-    email: string;
-    serverError: boolean;
-    failedAttempt: boolean;
+    stepNumber: number;
 }

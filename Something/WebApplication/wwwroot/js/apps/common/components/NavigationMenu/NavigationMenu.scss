@@ -1,0 +1,17 @@
+@import '../../../Variables.scss';
+
+.NavigationMenu {
+    overflow: 'auto';
+    height: '100vh';
+    position: 'fixed';
+    left: 0;
+    &__logo {
+        height: 32px;
+        background: #334454;
+        margin: 16px;
+    }
+    .nav-text {
+        font-size: 12px;
+        font-weight: $font-weight-medium;
+    }
+}

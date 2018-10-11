@@ -1,13 +1,13 @@
-﻿
+﻿@using WebApplication.Utils;
+@using Service.ViewModels.Onboarding;
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Onboarding</h2>
+<div id="onboarding-root"></div>
 
-<p>3 step Wizard to be implemented here</p>
-<ul>
-    <li>Create Company</li>
-    <li>Create Project</li>
-    <li>Create Sprint</li>
-</ul>
+<script type="text/javascript">
+    window.onboardingParams = @Html.Raw(JsonSerializer.Serialize<OnboardingViewModel>(Model));
+</script>
+
+<script src="~/dist/onboarding.bundle.js"></script>

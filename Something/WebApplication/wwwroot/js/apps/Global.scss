@@ -1,10 +1,18 @@
 @import 'AntOverrides.scss';
+@import 'Variables.scss';
 
 // todo: to stay until, we find a way to override ant design's variables.
 body,
 h1, h2, h3, h4, h5, h6,
 p, a, label, input, b,
 .ant-btn, .ant-input, .ant-form-item,
+.ant-steps, .ant-menu,
 .ant-alert {
-    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-family: 'Montserrat', 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 12px;
+    font-weight: $font-weight-medium;
+}
+
+label, b {
+    font-weight: $font-weight-bold;
 }

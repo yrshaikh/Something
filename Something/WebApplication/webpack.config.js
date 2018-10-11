@@ -3,7 +3,8 @@ const tsImportPluginFactory = require('ts-import-plugin')
 module.exports = {
     mode: 'development',
     entry: {
-        login: './wwwroot/js/apps/authentication/AuthenticationEntry.tsx'
+        auth: './wwwroot/js/apps/authentication/AuthenticationEntry.tsx',
+        onboarding: './wwwroot/js/apps/onboarding/OnboardingEntry.tsx'
     },
     output: {
         path: path.resolve(__dirname, 'wwwroot/dist'),

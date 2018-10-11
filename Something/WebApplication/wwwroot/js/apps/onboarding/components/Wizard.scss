@@ -1,0 +1,12 @@
+@import '../../Variables.scss';
+
+.ant-steps {
+    &__content {
+        padding: 15px;
+    }
+}
+
+.ant-steps-item-process .ant-steps-item-title, .ant-steps-item-title {
+    font-size: 14px;
+    font-weight: $font-weight-bold;
+}

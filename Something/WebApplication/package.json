@@ -39,6 +39,7 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "tslint": "^5.11.0"
   }
 }
