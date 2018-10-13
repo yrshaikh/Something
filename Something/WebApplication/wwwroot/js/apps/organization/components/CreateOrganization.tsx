@@ -20,7 +20,6 @@ export class CreateOrganization extends React.Component<CreateOrganization.Props
     }
 
     public render(): JSX.Element {
-        if (!this.state) { return null; }
         return (
             <div className="ant-row">
                 {this.renderForm()}
