@@ -13,7 +13,6 @@ const { Content } = Layout;
 
 export const Onboarding: React.SFC = () => {
     const params = getParams(PageTypes.ONBOARDING) as IOnboardingProps;
-    if (!params) { return null; }
 
     return <div className="onboarding ant-row">
         <Layout className="ant-layout--fullheight">
@@ -21,7 +20,7 @@ export const Onboarding: React.SFC = () => {
             <Layout>
                 <Content>
                     <div className="onboarding__title">Welcome on board, let's get you started!</div>
-                    <Wizard stepNumber={0} />
+                    <Wizard stepNumber={params.stepNumber} />
                 </Content>
                 <PageFooter />
             </Layout>
