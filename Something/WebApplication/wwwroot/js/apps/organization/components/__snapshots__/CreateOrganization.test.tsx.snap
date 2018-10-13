@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateOrganization /> should render correctly 1`] = `
+<div
+  className="ant-row"
+>
+  <Form
+    className="ant-col-md-24 CreateOrganization"
+    hideRequiredMark={false}
+    layout="horizontal"
+    onSubmit={[Function]}
+    prefixCls="ant-form"
+  >
+    <p>
+      <b>
+        Get most out of your organization
+      </b>
+    </p>
+    <p>
+      Organization helps you to group users and projects. You can create mulitple organization, one user can be linked with mulitple organizations.
+    </p>
+    <b>
+      Organization name
+    </b>
+    <FormItem
+      colon={true}
+      hasFeedback={false}
+      prefixCls="ant-form"
+    >
+      <Input
+        autoFocus={true}
+        className="ant-input-lg CreateOrganization__input"
+        disabled={false}
+        name="Email"
+        onChange={[Function]}
+        placeholder="ACME INC"
+        prefixCls="ant-input"
+        type="text"
+      />
+    </FormItem>
+    <FormItem
+      colon={true}
+      hasFeedback={false}
+      prefixCls="ant-form"
+    >
+      <Button
+        block={false}
+        className="login-form-button ant-btn--rounded ant-btn--disabled"
+        ghost={false}
+        htmlType="submit"
+        loading={false}
+        onClick={[Function]}
+        prefixCls="ant-btn"
+        type="primary"
+      >
+        Create Organization
+      </Button>
+    </FormItem>
+  </Form>
+  <hr
+    className="ant-col-md-24 CreateOrganization__hr"
+  />
+</div>
+`;
