@@ -1,7 +1,7 @@
 import { PageTypes } from "../../common/PageTypeEnum";
-import { BaseParams } from "../../common/types/BaseParams";
+import { IBaseParams } from "../../common/types/BaseParams";
 
-export interface IOnboardingProps extends BaseParams {
+export interface IOnboardingProps extends IBaseParams {
     pageTypeId: PageTypes;
     stepNumber: number;
 }

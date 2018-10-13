@@ -1,9 +1,9 @@
 import { PageTypes } from "./PageTypeEnum";
 import { IAuthenticationProps } from "../authentication/types/IAuthenticationProps";
-import { BaseParams } from "./types/BaseParams";
+import { IBaseParams } from "./types/BaseParams";
 import { IOnboardingProps } from "../onboarding/types/IOnboardingProps";
 
-export const getParams = (pageType: PageTypes): BaseParams => {
+export const getParams = (pageType: PageTypes): IBaseParams => {
     let params = null;
 
     switch (pageType) {
