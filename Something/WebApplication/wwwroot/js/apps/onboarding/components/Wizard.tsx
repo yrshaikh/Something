@@ -81,6 +81,10 @@ export class Wizard extends React.PureComponent<Wizard.Props, Wizard.State> {
             default:
                 break;
         }
-        this.setState({ currentIndex: nextStep });
+        this.setState(function (state, props) {
+            return {
+                currentIndex: nextStep
+            }
+        });
     }
 }
