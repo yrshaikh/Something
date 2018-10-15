@@ -23,7 +23,7 @@ namespace WebApplication.ApiControllers
 
         // GET: api/Companies
         [HttpGet]
-        public IEnumerable<CompanyViewModel> Get()
+        public IEnumerable<CompanyVM> Get()
         {
             var companies = _companyService.GetCompanies(GetUserId());
             return companies;
@@ -31,7 +31,7 @@ namespace WebApplication.ApiControllers
         
         // POST: api/Companies
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]CreateCompanyViewModel model)
+        public async Task<IActionResult> Post([FromBody]CreateCompanyVM model)
         {
             if (string.IsNullOrWhiteSpace(model.Name) || model.Name.Length < 3)
             {
@@ -43,7 +43,7 @@ namespace WebApplication.ApiControllers
         }
 
         [HttpGet("{id}")]
-        public CompanyViewModel Get(int id)
+        public CompanyVM Get(int id)
         {
             throw new NotImplementedException();
         }

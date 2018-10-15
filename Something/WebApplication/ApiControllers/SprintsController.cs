@@ -22,7 +22,7 @@ namespace WebApplication.ApiControllers
 
         // POST: api/Companies
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]SprintCreateViewModel sprint)
+        public async Task<IActionResult> Post([FromBody]SprintCreateVM sprint)
         {
             if (!ModelState.IsValid)
             {
@@ -34,7 +34,7 @@ namespace WebApplication.ApiControllers
         }
 
         [HttpGet("{id}")]
-        public SprintViewModel Get(int id)
+        public SprintVM Get(int id)
         {
             throw new NotImplementedException();
         }

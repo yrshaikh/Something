@@ -3,7 +3,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Service.ViewModels.Common
 {
-    public abstract class BasePageViewModel : IBasePageViewModel
+    public abstract class BasePageVM : IBasePageVM
     {
         public abstract int PageTypeId { get; set; }
     }

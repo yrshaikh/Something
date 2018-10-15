@@ -4,6 +4,8 @@
     {
         Login = 0,
         Register = 1,
-        Onboarding = 2
+        Onboarding = 2,
+        Home = 3,
+        Dashboard = 4,
     }
 }

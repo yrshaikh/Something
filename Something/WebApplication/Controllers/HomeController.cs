@@ -8,7 +8,9 @@ namespace WebApplication.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            if (!User.Identity.IsAuthenticated)
+                return View();
+            return RedirectToAction("Index", "Dashboard");
         }
 
         public IActionResult About()
@@ -27,7 +29,7 @@ namespace WebApplication.Controllers
 
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorVM { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Service.ViewModels.Company
 {
-    public class CompanyViewModel
+    public class CompanyVM
     {
-        public CompanyViewModel(int companyId, string companyName)
+        public CompanyVM(int companyId, string companyName)
         {
             Id = companyId;
             Name = companyName;

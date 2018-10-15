@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Service.ViewModels.Sprint
 {
-    public class SprintCreateViewModel
+    public class SprintCreateVM
     {
         [Required]
         public int ProjectId { get; set; }

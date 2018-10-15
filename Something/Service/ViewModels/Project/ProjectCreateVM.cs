@@ -2,7 +2,7 @@
 
 namespace Service.ViewModels.Project
 {
-    public class ProjectCreateViewModel
+    public class ProjectCreateVM
     {
         [Required]
         public int CompanyId { get; set; }

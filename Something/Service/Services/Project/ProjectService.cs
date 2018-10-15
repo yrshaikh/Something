@@ -14,7 +14,7 @@ namespace Service.Services.Project
             _dbContext = dbContext;
         }
 
-        public int CreateProject(ProjectCreateViewModel project, Guid createdBy)
+        public int CreateProject(ProjectCreateVM project, Guid createdBy)
         {
             var projectToBeCreated = new Database.Entities.Project
             {
@@ -30,7 +30,7 @@ namespace Service.Services.Project
             return projectToBeCreated.ProjectId;
         }
 
-        public IEnumerable<ProjectViewModel> GetProjects(int companyId)
+        public IEnumerable<ProjectVM> GetProjects(int companyId)
         {
             throw new NotImplementedException();
         }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Service.ViewModels.AccountViewModels
 {
-    public class LoginViewModel : AuthViewModel
+    public class LoginVM : AuthVM
     {
         [Required]
         [EmailAddress]

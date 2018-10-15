@@ -6,7 +6,7 @@ namespace Service.Services.Project
 {
     public interface IProjectService
     {
-        IEnumerable<ProjectViewModel> GetProjects(int companyId);
-        int CreateProject(ProjectCreateViewModel project, Guid createdBy);
+        IEnumerable<ProjectVM> GetProjects(int companyId);
+        int CreateProject(ProjectCreateVM project, Guid createdBy);
     }
 }

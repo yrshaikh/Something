@@ -1,6 +1,6 @@
 ﻿namespace Service.ViewModels.Common
 {
-    public interface IBasePageViewModel
+    public interface IBasePageVM
     {
         int PageTypeId { get; set; }
     }

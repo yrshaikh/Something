@@ -3,7 +3,7 @@ using Service.ViewModels.Enums;
 
 namespace Service.ViewModels.Onboarding
 {
-    public class OnboardingViewModel : BasePageViewModel
+    public class OnboardingVM : BasePageVM
     {
         public override int PageTypeId { get; set; } = (int)PageTypeEnum.Onboarding;
     }

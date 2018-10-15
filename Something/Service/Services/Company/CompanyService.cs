@@ -17,17 +17,17 @@ namespace Service.Services.Company
             _dbContext = dbContext;
         }
 
-        public IEnumerable<CompanyViewModel> GetCompanies(Guid userId)
+        public IEnumerable<CompanyVM> GetCompanies(Guid userId)
         {
             var companies = _dbContext
                                     .CompanyUsers
                                     .Where(x => x.UserId == userId)
                                     .Select(x => x.Company).ToList();
 
-            var companiesVm = new List<CompanyViewModel>();
+            var companiesVm = new List<CompanyVM>();
             foreach (var company in companies)
             {
-                companiesVm.Add(new CompanyViewModel(company.CompanyId, company.Name));
+                companiesVm.Add(new CompanyVM(company.CompanyId, company.Name));
             }
             return companiesVm;
         }

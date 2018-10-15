@@ -29,7 +29,7 @@ namespace WebApplication.Tests.Controllers
         public async Task PostMethod_InvalidInput_ReturnsBadRequest()
         {
             _controller.Object.ModelState.AddModelError("key", "error");
-            var result = await _controller.Object.Post(It.IsAny<SprintCreateViewModel>());
+            var result = await _controller.Object.Post(It.IsAny<SprintCreateVM>());
             Assert.AreEqual(typeof(BadRequestResult), result.GetType());
         }
 
@@ -39,12 +39,12 @@ namespace WebApplication.Tests.Controllers
         [TestCase(1, "Khapun Khap")]
         public async Task PostMethod_ValidInput_ReturnsCorrectResponse(int projectId, string sprintName)
         {
-            var project = new SprintCreateViewModel { ProjectId = projectId, Name = sprintName};
+            var project = new SprintCreateVM { ProjectId = projectId, Name = sprintName};
             var result = await _controller.Object.Post(project);
 
             _sprintService.Verify(x => 
                 x.CreateSprint(
-                    It.Is<SprintCreateViewModel>(
+                    It.Is<SprintCreateVM>(
                         p => p.ProjectId == projectId && p.Name == sprintName)
             ));
 
