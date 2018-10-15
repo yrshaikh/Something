@@ -79,9 +79,10 @@ export class CreateOrganization extends React.Component<CreateOrganization.Props
     }
 
     private onChangeOrgnaizationName(e: any) {
+        const name = e.target.value;
         this.setState(function (state, props) {
             return {
-                organizationName: e.target.value
+                organizationName: name
             }
         });
     }

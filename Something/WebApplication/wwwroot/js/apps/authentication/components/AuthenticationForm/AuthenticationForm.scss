@@ -1,7 +1,7 @@
 .AuthForm{
     width: 400px;
     margin: 0 auto;
-    padding-top: 25%;
+    padding-top: 20%;
     &__title {
         font-size: 32px;
         margin-bottom: 0;
@@ -11,5 +11,8 @@
     }
     &__secondaryLink {
         margin-top: 10px;
+    }
+    .ant-btn--rounded {
+        font-size: 16px;
     }
 }
