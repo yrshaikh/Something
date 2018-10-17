@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Service.Services.Company;
-using Service.ViewModels.Company;
+using Service.VM.Company;
 
 namespace WebApplication.ApiControllers
 {

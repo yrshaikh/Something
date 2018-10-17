@@ -2,7 +2,7 @@
 using Moq;
 using NUnit.Framework;
 using Service.Services.Sprint;
-using Service.ViewModels.Sprint;
+using Service.VM.Sprint;
 using System.Threading.Tasks;
 using WebApplication.ApiControllers;
 using WebApplication.Tests.Mocks;

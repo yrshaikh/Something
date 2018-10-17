@@ -1,4 +1,4 @@
-﻿using Service.ViewModels.Project;
+﻿using Service.VM.Project;
 using System;
 using System.Collections.Generic;
 

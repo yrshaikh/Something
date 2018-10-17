@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Service.Services.Sprint;
-using Service.ViewModels.Sprint;
+using Service.VM.Sprint;
 using System;
 using System.Threading.Tasks;
 

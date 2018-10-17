@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Service.Services.Project;
 using Service.Services.Sprint;
-using Service.ViewModels.Project;
-using Service.ViewModels.Sprint;
+using Service.VM.Project;
+using Service.VM.Sprint;
 
 namespace WebApplication.ApiControllers
 {

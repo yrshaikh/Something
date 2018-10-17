@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Service.ViewModels;
+using Service.VM;
 
 namespace WebApplication.Controllers
 {
@@ -8,23 +8,11 @@ namespace WebApplication.Controllers
     {
         public IActionResult Index()
         {
+            return View();
+            
             if (!User.Identity.IsAuthenticated)
                 return View();
             return RedirectToAction("Index", "Dashboard");
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
         }
 
         public IActionResult Error()

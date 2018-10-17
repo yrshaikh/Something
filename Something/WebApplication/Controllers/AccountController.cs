@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Service.ViewModels.AccountViewModels;
+using Service.VM.Account;
 using WebApplication.Services;
 
 namespace WebApplication.Controllers

@@ -1,5 +1,5 @@
 ﻿using Database.EntityFramework;
-using Service.ViewModels.Sprint;
+using Service.VM.Sprint;
 
 namespace Service.Services.Sprint
 {

@@ -7,5 +7,5 @@ const props = GlobalService.getOnboardingPageParams();
 
 ReactDOM.render(
     <Onboarding {...props} />,
-    document.getElementById("onboarding-root"),
+    document.getElementById("root"),
 );

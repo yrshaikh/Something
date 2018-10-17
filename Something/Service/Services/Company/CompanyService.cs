@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Database.EntityFramework;
-using Service.ViewModels.Company;
+using Service.VM.Company;
 using System.Threading.Tasks;
 using Database.Entities;
 

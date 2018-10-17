@@ -4,7 +4,9 @@ module.exports = {
     mode: 'development',
     entry: {
         auth: './wwwroot/js/apps/authentication/AuthenticationEntry.tsx',
-        onboarding: './wwwroot/js/apps/onboarding/OnboardingEntry.tsx'
+        onboarding: './wwwroot/js/apps/onboarding/OnboardingEntry.tsx',
+        dashboard: './wwwroot/js/apps/dashboard/DashboardEntry.tsx',
+        home: './wwwroot/js/apps/home/HomeEntry.tsx'
     },
     output: {
         path: path.resolve(__dirname, 'wwwroot/dist'),

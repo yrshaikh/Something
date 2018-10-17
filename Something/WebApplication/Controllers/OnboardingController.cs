@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Service.ViewModels.Onboarding;
+using Service.VM.Onboarding;
 
 namespace WebApplication.Controllers
 {

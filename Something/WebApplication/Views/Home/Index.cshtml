@@ -1,13 +1,13 @@
 ﻿@using WebApplication.Utils;
-@using Service.ViewModels.Home;
+@using Service.VM.Home;
 @{
     ViewData["Title"] = "Index";
 }
 
-<div id="dashboard-root"></div>
+<div id="root"></div>
 
 <script type="text/javascript">
-    window.homeParams = @Html.Raw(JsonSerializer.Serialize<HomeVM>(Model));
+    window.params = @Html.Raw(JsonSerializer.Serialize<HomeVM>(Model));
 </script>
 
-<script src="~/dist/dashboard.bundle.js"></script>
+<script src="~/dist/home.bundle.js"></script>
