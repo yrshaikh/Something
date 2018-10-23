@@ -17,16 +17,15 @@ describe("<Home />", () => {
         expect(wrapper.find('.Home').find('h1').length).toBe(1);
         expect(wrapper.find('.Home').find('p').length).toBe(1);
         
-        const buttonWrapper = wrapper.find('.Home').find('.Home__btnHolder');
+        const buttonWrapper = wrapper.find('.Home').find('.Home__btns');
         expect(buttonWrapper.length).toBe(1);
-
-        const buttons = buttonWrapper.find('Button');
-        expect(buttons.length).toBe(2);
-
-        const loginButton = buttons.at(0);
-        const registerButton = buttons.at(1);
+        const loginLink = buttonWrapper.find('.Home__btns--default').at(0);
+        const registerLink = buttonWrapper.find('.Home__btns--default').at(1);
+        expect(loginLink.prop('href')).toBe('/account/login');
+        expect(registerLink.prop('href')).toBe('/account/register');
         
-        expect(loginButton.prop('href')).toBe('/account/login');
-        expect(registerButton.prop('href')).toBe('/account/register');
+        const galleryWrapper = wrapper.find('.Home').find('.Home__gallery');
+        expect(buttonWrapper.length).toBe(1);
+        expect(galleryWrapper.find('img').length).toBe(1);
     });
 });
