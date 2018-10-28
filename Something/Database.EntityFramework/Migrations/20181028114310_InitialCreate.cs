@@ -222,7 +222,8 @@ namespace Database.EntityFramework.Migrations
                     StartDate = table.Column<DateTime>(nullable: true),
                     EndDate = table.Column<DateTime>(nullable: true),
                     ProjectId = table.Column<int>(nullable: false),
-                    IsClosed = table.Column<bool>(nullable: false)
+                    IsClosed = table.Column<bool>(nullable: false),
+                    IsBackLog = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
