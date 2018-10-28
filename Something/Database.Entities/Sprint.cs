@@ -23,5 +23,6 @@ namespace Database.Entities
         public Project Project { get; set; }
 
         public bool IsClosed { get; set; }
+        public bool IsBackLog { get; set; }
     }
 }
