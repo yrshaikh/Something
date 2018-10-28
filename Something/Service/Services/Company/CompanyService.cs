@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Database.EntityFramework;
 using Service.VM.Company;
-using System.Threading.Tasks;
 using Database.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Service.Services.Company
 {
@@ -21,14 +21,11 @@ namespace Service.Services.Company
         {
             var companies = _dbContext
                                     .CompanyUsers
+                                    .Include(x => x.Company)
                                     .Where(x => x.UserId == userId)
                                     .Select(x => x.Company).ToList();
 
-            var companiesVm = new List<CompanyVM>();
-            foreach (var company in companies)
-            {
-                companiesVm.Add(new CompanyVM(company.CompanyId, company.Name));
-            }
+            var companiesVm = companies.Select(c => new CompanyVM(c.CompanyId, c.Name));
             return companiesVm;
         }
 
