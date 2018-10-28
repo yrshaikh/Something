@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Service.ViewModels.Onboarding;
+using Service.VM.Onboarding;
 
 namespace WebApplication.Controllers
 {
@@ -9,7 +9,7 @@ namespace WebApplication.Controllers
     {
         public IActionResult Index()
         {
-            return View(new OnboardingViewModel());
+            return View(new OnboardingVM());
         }
     }
 }

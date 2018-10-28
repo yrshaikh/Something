@@ -1,15 +1,14 @@
-﻿@model Service.ViewModels.AccountViewModels.RegisterViewModel
+﻿@model Service.VM.Account.RegisterVM
 @using WebApplication.Utils;
 @{
     ViewData["Title"] = "Register";
     Layout = null;
 }
 
-
-<div id="login-root" />
+<div id="root" />
 
 <script type="text/javascript">
-    window.authParams = @Html.Raw(JsonSerializer.Serialize<RegisterViewModel>(Model));
+    window.params = @Html.Raw(JsonSerializer.Serialize<RegisterVM>(Model));
 </script>
 
 <script src="~/dist/auth.bundle.js"></script>

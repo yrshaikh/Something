@@ -1,6 +1,6 @@
 import "jest";
 import * as React from "react";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import enzymeToJson from "enzyme-to-json";
 
 import { CreateOrganization } from "./CreateOrganization";

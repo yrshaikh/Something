@@ -57,7 +57,7 @@ export class CreateOrganization extends React.Component<CreateOrganization.Props
                     onClick={this.createOrganization}
                 >
                     Create Organization
-                        </Button>
+                </Button>
             </FormItem>
         </Form>;
     }

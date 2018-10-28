@@ -3,8 +3,8 @@ using Moq;
 using NUnit.Framework;
 using Service.Services.Project;
 using Service.Services.Sprint;
-using Service.ViewModels.Project;
-using Service.ViewModels.Sprint;
+using Service.VM.Project;
+using Service.VM.Sprint;
 using System.Threading.Tasks;
 using WebApplication.ApiControllers;
 using WebApplication.Tests.Mocks;
@@ -34,7 +34,7 @@ namespace WebApplication.Tests.Controllers
         public async Task PostMethod_InvalidInput_ReturnsBadRequest()
         {
             _controller.Object.ModelState.AddModelError("key", "error");
-            var result = await _controller.Object.Post(It.IsAny<ProjectCreateViewModel>());
+            var result = await _controller.Object.Post(It.IsAny<ProjectCreateVM>());
             Assert.AreEqual(typeof(BadRequestResult), result.GetType());
         }
 
@@ -47,19 +47,19 @@ namespace WebApplication.Tests.Controllers
             var mockedProjectId = 1;
             var sprintName = "Backlog";
 
-            var project = new ProjectCreateViewModel { CompanyId = companyId, Name = projectName };
-            _projectService.Setup(x => x.CreateProject(It.IsAny<ProjectCreateViewModel>(), mockedUserGuid)).Returns(mockedProjectId);
+            var project = new ProjectCreateVM { CompanyId = companyId, Name = projectName };
+            _projectService.Setup(x => x.CreateProject(It.IsAny<ProjectCreateVM>(), mockedUserGuid)).Returns(mockedProjectId);
 
             var result = await _controller.Object.Post(project);
             _projectService.Verify(x => 
                 x.CreateProject(
-                    It.Is<ProjectCreateViewModel>(
+                    It.Is<ProjectCreateVM>(
                         p => p.CompanyId == companyId && p.Name == projectName), mockedUserGuid
             ));
 
             _sprintService.Verify(x =>
                 x.CreateSprint(
-                    It.Is<SprintCreateViewModel>(
+                    It.Is<SprintCreateVM>(
                         p => p.ProjectId == mockedProjectId && p.Name == sprintName)
             ));
 

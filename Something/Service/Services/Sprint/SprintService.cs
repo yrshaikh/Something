@@ -1,5 +1,5 @@
 ﻿using Database.EntityFramework;
-using Service.ViewModels.Sprint;
+using Service.VM.Sprint;
 
 namespace Service.Services.Sprint
 {
@@ -12,7 +12,7 @@ namespace Service.Services.Sprint
             _dbContext = dbContext;
         }
 
-        public int CreateSprint(SprintCreateViewModel sprint)
+        public int CreateSprint(SprintCreateVM sprint)
         {
             var sprintToBeCreated = new Database.Entities.Sprint
             {

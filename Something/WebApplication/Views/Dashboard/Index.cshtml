@@ -1,0 +1,13 @@
+﻿@using WebApplication.Utils;
+@using Service.VM.Dashboard;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="root"></div>
+
+<script type="text/javascript">
+    window.params = @Html.Raw(JsonSerializer.Serialize<DashboardVM>(Model));
+</script>
+
+<script src="~/dist/dashboard.bundle.js"></script>

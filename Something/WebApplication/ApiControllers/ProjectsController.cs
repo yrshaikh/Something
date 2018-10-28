@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Service.Services.Project;
 using Service.Services.Sprint;
-using Service.ViewModels.Project;
-using Service.ViewModels.Sprint;
+using Service.VM.Project;
+using Service.VM.Sprint;
 
 namespace WebApplication.ApiControllers
 {
@@ -27,7 +27,7 @@ namespace WebApplication.ApiControllers
 
         // POST: api/Companies
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]ProjectCreateViewModel project)
+        public async Task<IActionResult> Post([FromBody]ProjectCreateVM project)
         {
             if (!ModelState.IsValid)
             {
@@ -35,12 +35,12 @@ namespace WebApplication.ApiControllers
             }
 
             var projectId = _projectService.CreateProject(project, GetUserId());
-            _sprintService.CreateSprint(new SprintCreateViewModel { ProjectId = projectId, Name = "Backlog" });
+            _sprintService.CreateSprint(new SprintCreateVM { ProjectId = projectId, Name = "Backlog" });
             return CreatedAtAction("Get", new { id = projectId }, projectId);
         }
 
         [HttpGet("{id}")]
-        public ProjectViewModel Get(int id)
+        public ProjectVM Get(int id)
         {
             throw new NotImplementedException();
         }

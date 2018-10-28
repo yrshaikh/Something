@@ -7,5 +7,5 @@ const params = GlobalService.getAuthPageParams();
 
 ReactDOM.render(
     <Authentication {...params} />,
-    document.getElementById("login-root"),
+    document.getElementById("root"),
 );

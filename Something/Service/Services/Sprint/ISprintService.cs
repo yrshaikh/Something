@@ -1,10 +1,10 @@
 ﻿using System;
-using Service.ViewModels.Sprint;
+using Service.VM.Sprint;
 
 namespace Service.Services.Sprint
 {
     public interface ISprintService
     {
-        int CreateSprint(SprintCreateViewModel sprint);
+        int CreateSprint(SprintCreateVM sprint);
     }
 }
