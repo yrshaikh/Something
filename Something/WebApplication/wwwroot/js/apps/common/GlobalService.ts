@@ -5,7 +5,7 @@ import { IHomeProps } from "../home/types/IHomeProps";
 
 export const GlobalService = {
     getAuthPageParams() : IAuthenticationProps { return (window as any).params as IAuthenticationProps; },
-    getOnboardingPageParams(): IOnboardingProps { return (window as any).params as IOnboardingProps },
-    getHomePageParams(): IHomeProps { return (window as any).params as IHomeProps },
-    getDashboardParams(): IDashboardProps { return (window as any).params as IDashboardProps },
+    getOnboardingPageParams(): IOnboardingProps { return (window as any).params as IOnboardingProps; },
+    getHomePageParams(): IHomeProps { return (window as any).params as IHomeProps; },
+    getDashboardParams(): IDashboardProps { return (window as any).params as IDashboardProps; },
 };
