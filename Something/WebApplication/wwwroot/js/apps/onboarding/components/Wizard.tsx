@@ -7,17 +7,16 @@ import { CreateSprint } from "../../sprint/components/CreateSprint";
 
 import "./Wizard.scss";
 
-import { Icon } from "antd";
 import { FormComponentProps } from "antd/lib/form";
 
 const Step = Steps.Step;
 const steps = [0, 1, 2];
 
-export class Wizard extends React.PureComponent<Wizard.Props, Wizard.State> {
+export class Wizard extends React.PureComponent<{}, Wizard.State> {
 
-    constructor(props: Wizard.Props) {
-        super(props);
-        const currentStep = steps.indexOf(props.stepNumber) !== -1 ? props.stepNumber : 0;
+    constructor() {
+        super({});
+        const currentStep = 0;
         this.state = {
             currentIndex: currentStep,
         };
