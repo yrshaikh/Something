@@ -28,7 +28,7 @@ namespace WebApplication.Tests.Controllers
         [TestCase("AC")]
         public async Task PostMethod_InvalidInput_ReturnsBadRequest(string companyName)
         {
-            var result = await _controller.Object.Post(companyName);
+            var result = await _controller.Object.Post(new Service.VM.Company.CreateCompanyVM() { Name = companyName });
             Assert.AreEqual(typeof(BadRequestObjectResult), result.GetType());
         }
 
@@ -38,7 +38,7 @@ namespace WebApplication.Tests.Controllers
         [TestCase("Khapun Khap")]
         public async Task PostMethod_ValidInput_ReturnsCorrectResponse(string companyName)
         {
-            var result = await _controller.Object.Post(companyName);
+            var result = await _controller.Object.Post(new Service.VM.Company.CreateCompanyVM() { Name = companyName });
             _companyService.Verify(x => x.CreateCompany(companyName, Guid.Parse(mockedUserId)));
             Assert.AreEqual(typeof(CreatedAtActionResult), result.GetType());
         }

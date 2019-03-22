@@ -24,6 +24,11 @@ Run `docker-compose down` to delete all existing tables and redo step 1 & 2.
 ## Client side test
 1. Run `yarn test` to run all tests (`yarn test {testname}` to run individual test)
 
+## How to run
+1. Open command prompt and cd to the `WebApplication` folder.
+2. Run `dotnet run` command.
+3. Find the url in the output, something like `Now listening on: http://localhost:56758`.
+
 
 To add any new dependencies in the client side, please use `yarn add` (not `npm`) and don't forget to commit the updated 
 `yarn.lock` file.

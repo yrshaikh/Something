@@ -1,7 +1,7 @@
 import { IAuthenticationProps } from "../authentication/types/IAuthenticationProps";
-import { IOnboardingProps } from "../onboarding/types/IOnboardingProps";
 import { IDashboardProps } from "../dashboard/types/IDashboardProps";
 import { IHomeProps } from "../home/types/IHomeProps";
+import { IOnboardingProps } from "../onboarding/types/IOnboardingProps";
 
 export const GlobalService = {
     getAuthPageParams() : IAuthenticationProps { return (window as any).params as IAuthenticationProps; },

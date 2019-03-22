@@ -31,10 +31,10 @@ namespace WebApplication.Tests.Controllers
         }
 
         [Test]
-        public async Task PostMethod_InvalidInput_ReturnsBadRequest()
+        public void PostMethod_InvalidInput_ReturnsBadRequest()
         {
             _controller.Object.ModelState.AddModelError("key", "error");
-            var result = await _controller.Object.Post(It.IsAny<ProjectCreateVM>());
+            var result = _controller.Object.Post(It.IsAny<ProjectCreateVM>());
             Assert.AreEqual(typeof(BadRequestResult), result.GetType());
         }
 
@@ -42,7 +42,7 @@ namespace WebApplication.Tests.Controllers
         [TestCase(1, "Baman Enterprises")]
         [TestCase(1, "Kasai Express")]
         [TestCase(1, "Khapun Khap")]
-        public async Task PostMethod_ValidInput_ReturnsCorrectResponse(int companyId, string projectName)
+        public void PostMethod_ValidInput_ReturnsCorrectResponse(int companyId, string projectName)
         {
             var mockedProjectId = 1;
             var sprintName = "Backlog";
@@ -50,7 +50,7 @@ namespace WebApplication.Tests.Controllers
             var project = new ProjectCreateVM { CompanyId = companyId, Name = projectName };
             _projectService.Setup(x => x.CreateProject(It.IsAny<ProjectCreateVM>(), mockedUserGuid)).Returns(mockedProjectId);
 
-            var result = await _controller.Object.Post(project);
+            var result = _controller.Object.Post(project);
             _projectService.Verify(x => 
                 x.CreateProject(
                     It.Is<ProjectCreateVM>(

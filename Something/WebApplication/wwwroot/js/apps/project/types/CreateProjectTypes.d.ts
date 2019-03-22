@@ -1,11 +1,12 @@
-declare module CreateOrganization {
+export declare module CreateProjectTypes {
     interface Props {
         isOnboarding?: boolean;
         onCreateCallback: (id: string) => void;
+        organizationId: number;
     }
-    
+
     interface State {
-        organizationName: string;
+        projectName: string;
         hasError: boolean;
     }
 }

@@ -5,18 +5,17 @@ import { Layout } from "antd";
 import { PageFooter } from "../common/components/PageFooter/PageFooter";
 
 import "./Onboarding.scss";
-import { IOnboardingProps } from "./types/IOnboardingProps";
 
 const { Content } = Layout;
 
-export const Onboarding: React.SFC<IOnboardingProps> = (props: IOnboardingProps) => {
+export const Onboarding: React.SFC = () => {
     return <div className="onboarding ant-row">
         <Layout className="ant-layout--fullheight">
             <NavigationMenu />
             <Layout>
                 <Content>
                     <div className="onboarding__title">Welcome on board, let's get you started!</div>
-                    <Wizard stepNumber={props.stepNumber} />
+                    <Wizard />
                 </Content>
                 <PageFooter />
             </Layout>

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180909121936_InitialCreate")]
+    [Migration("20181028114310_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -135,6 +135,8 @@ namespace Database.EntityFramework.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime?>("EndDate");
+
+                    b.Property<bool>("IsBackLog");
 
                     b.Property<bool>("IsClosed");
 

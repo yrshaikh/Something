@@ -134,6 +134,8 @@ namespace Database.EntityFramework.Migrations
 
                     b.Property<DateTime?>("EndDate");
 
+                    b.Property<bool>("IsBackLog");
+
                     b.Property<bool>("IsClosed");
 
                     b.Property<string>("Name")

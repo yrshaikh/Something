@@ -1,8 +1,9 @@
-declare namespace Wizard {
+export declare module WizardTypes {
     interface Props {
-        stepNumber: number;
     }
+
     interface State {
         currentIndex: number;
+        organizationId: number;
     }
 }
