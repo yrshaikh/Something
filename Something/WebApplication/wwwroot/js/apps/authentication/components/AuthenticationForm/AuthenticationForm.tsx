@@ -78,7 +78,7 @@ class SimpleForm extends React.Component<IAuthenticationProps & FormComponentPro
                             className="login-form-button ant-btn--rounded"
                         >
                             {domRepository.getButtonText()}
-                         </Button>
+                        </Button>
                     </FormItem>
                     {this.showErrorMessage(
                         this.props.serverError,
