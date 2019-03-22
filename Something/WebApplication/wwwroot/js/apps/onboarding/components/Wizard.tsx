@@ -5,6 +5,9 @@ import { CreateOrganization } from "../../organization/components/CreateOrganiza
 import { CreateProject } from "../../project/components/CreateProject";
 import { CreateSprint } from "../../sprint/components/CreateSprint";
 
+import { CreateOrganizationTypes } from "../../organization/types/CreateOrganizationTypes";
+import { WizardTypes } from "../types/WizardTypes";
+
 import "./Wizard.scss";
 
 import { FormComponentProps } from "antd/lib/form";
@@ -12,13 +15,14 @@ import { FormComponentProps } from "antd/lib/form";
 const Step = Steps.Step;
 const steps = [0, 1, 2];
 
-export class Wizard extends React.PureComponent<{}, Wizard.State> {
+export class Wizard extends React.PureComponent<WizardTypes.Props, WizardTypes.State> {
 
     constructor() {
         super({});
         const currentStep = 0;
         this.state = {
             currentIndex: currentStep,
+            organizationId: 0
         };
         this.changeSteps = this.changeSteps.bind(this);
     }
@@ -59,11 +63,17 @@ export class Wizard extends React.PureComponent<{}, Wizard.State> {
         switch (index) {
             case 0:
             {
-                const props = { isOnboarding: true } as CreateOrganization.Props & FormComponentProps;
-                return <CreateOrganization {...props} onCreateCallback={this.changeSteps} />;
+                const props = { isOnboarding: true } as CreateOrganizationTypes.Props & FormComponentProps;
+                return <CreateOrganization 
+                            {...props}
+                            onCreateCallback={this.changeSteps}
+                        />;
             }
             case 1:
-                return <CreateProject />;
+                return <CreateProject
+                            onCreateCallback={this.changeSteps}
+                            organizationId={this.state.organizationId}
+                        />;
             case 2:
                 return <CreateSprint />;
             default:

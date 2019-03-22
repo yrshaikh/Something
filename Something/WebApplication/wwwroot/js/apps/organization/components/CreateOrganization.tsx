@@ -1,15 +1,16 @@
 import * as React from "react";
 import { Alert, Button, Form, Input } from "antd";
 import { OrganizationService } from "../../services/OrganizationService";
+import { CreateOrganizationTypes } from "../types/CreateOrganizationTypes";
 
 const classNames = require("classnames");
 const FormItem = Form.Item;
 
 import "./CreateOrganization.scss";
 
-export class CreateOrganization extends React.Component<CreateOrganization.Props, CreateOrganization.State> {
+export class CreateOrganization extends React.Component<CreateOrganizationTypes.Props, CreateOrganizationTypes.State> {
     public static displayName = "CreateOrganization";
-    constructor(props: CreateOrganization.Props) {
+    constructor(props: CreateOrganizationTypes.Props) {
         super(props);
         this.state = {
             hasError: false,

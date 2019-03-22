@@ -1,4 +1,4 @@
-declare module CreateSprint {
+export declare module CreateSprintTypes {
     interface Props {
     }
     

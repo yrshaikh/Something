@@ -5,12 +5,13 @@ const classNames = require("classnames");
 const FormItem = Form.Item;
 
 import { ProjectService } from "../../services/ProjectService";
+import { CreateProjectTypes } from "../types/CreateProjectTypes";
 
 import "./CreateProject.scss";
 
-export class CreateProject extends React.Component<CreateProject.Props, CreateProject.State> {
+export class CreateProject extends React.Component<CreateProjectTypes.Props, CreateProjectTypes.State> {
     public static displayName = "CreateProject";
-    constructor(props: CreateProject.Props) {
+    constructor(props: CreateProjectTypes.Props) {
         super(props);
         this.state = {
             hasError: false,
