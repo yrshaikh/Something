@@ -8,11 +8,31 @@ p, a, label, input, b,
 .ant-btn, .ant-input, .ant-form-item,
 .ant-steps, .ant-menu,
 .ant-alert {
-    font-family: 'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-    font-size: 12px;
-    font-weight: $font-weight-medium;
+    font-family: 
+    'Source Sans Pro',
+    'Montserrat',
+    'Nunito Sans',
+    'Segoe UI',
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif !important;
+    font-size: 14px;
 }
 
 label, b {
     font-weight: $font-weight-bold;
+}
+
+.promo-btn {
+    padding: 10px 30px;
+    display: inline-block;
+    border-radius: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: #1DB954;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
 }
