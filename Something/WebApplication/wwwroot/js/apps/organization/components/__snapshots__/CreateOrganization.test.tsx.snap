@@ -6,10 +6,10 @@ exports[`<CreateOrganization /> should render correctly 1`] = `
 >
   <Form
     className="ant-col-md-24 CreateOrganization"
+    colon={true}
     hideRequiredMark={false}
     layout="horizontal"
     onSubmit={[Function]}
-    prefixCls="ant-form"
   >
     <p>
       <b>
@@ -23,9 +23,7 @@ exports[`<CreateOrganization /> should render correctly 1`] = `
       Organization name
     </b>
     <FormItem
-      colon={true}
       hasFeedback={false}
-      prefixCls="ant-form"
     >
       <Input
         autoFocus={true}
@@ -34,14 +32,11 @@ exports[`<CreateOrganization /> should render correctly 1`] = `
         name="Email"
         onChange={[Function]}
         placeholder="ACME INC"
-        prefixCls="ant-input"
         type="text"
       />
     </FormItem>
     <FormItem
-      colon={true}
       hasFeedback={false}
-      prefixCls="ant-form"
     >
       <Button
         block={false}
@@ -50,7 +45,6 @@ exports[`<CreateOrganization /> should render correctly 1`] = `
         htmlType="submit"
         loading={false}
         onClick={[Function]}
-        prefixCls="ant-btn"
         type="primary"
       >
         Create Organization

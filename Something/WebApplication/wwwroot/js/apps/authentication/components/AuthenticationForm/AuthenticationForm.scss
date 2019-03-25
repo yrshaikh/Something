@@ -1,18 +1,29 @@
+@import "./../../../Global.scss";
+@import "./../../../Variables.scss";
+
 .AuthForm{
     width: 400px;
     margin: 0 auto;
-    padding-top: 20%;
+    padding-top: 10%;
     &__title {
         font-size: 32px;
         margin-bottom: 0;
     }
     &__subtitle {
-        font-size: 14px;
+        font-size: 16px;
     }
     &__secondaryLink {
         margin-top: 10px;
     }
     .ant-btn--rounded {
+        line-height: 1.6;
+        padding: 10px 30px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background-color: #1DB954;
         font-size: 16px;
+        border: none;
+        height: auto;
     }
 }
